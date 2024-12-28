@@ -10,19 +10,16 @@ int fib(int n)
         return n * fib(n - 1);
 }
 
-L_TEST(FibTest, )
-{
-    L_EXPECT_EQ(fib());
-    L_EXPECT_EQ(fib());
-    L_EXPECT_NE(fib());
+// L_TEST(FibTest, )
+// {
+//     L_EXPECT_EQ(fib());
+//     L_EXPECT_EQ(fib());
+//     L_EXPECT_NE(fib());
 
-}
-L_TEST(fib(1), 1)
-
-
+// }
+// L_TEST(fib(1), 1)
 
 int main()
 {
-    
 
 }
