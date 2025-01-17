@@ -1,3 +1,3 @@
 add_library(liblest 
-            assert.cc
-            testing.cc)
+            lest-assert.cc
+            lest-testing.cc)
