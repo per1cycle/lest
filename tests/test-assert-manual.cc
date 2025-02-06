@@ -10,14 +10,14 @@ int fib(int n)
         return n * fib(n - 1);
 }
 
-// L_TEST(FibTest, PROPERTY_POS)
+// TEST(FibTest, PROPERTY_POS)
 // {
 //     L_EXPECT_EQ(fib());
 //     L_EXPECT_EQ(fib());
 //     L_EXPECT_NE(fib());
 
 // }
-// L_TEST(fib(1), 1)
+// TEST(fib(1), 1);
 
 int main()
 {

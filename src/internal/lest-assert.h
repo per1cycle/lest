@@ -1,0 +1,4 @@
+#ifndef LEAST_ASSERT_H
+#define LEAST_ASSERT_H
+
+#endif // LEAST_ASSERT_H

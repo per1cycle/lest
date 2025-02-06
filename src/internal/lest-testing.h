@@ -1,0 +1,4 @@
+#ifndef LEAST_TESTING_H
+#define LEAST_TESTING_H
+
+#endif // LEAST_TESTING_H

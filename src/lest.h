@@ -1,13 +1,12 @@
 #include <iostream>
 
-#include "lest-assert.cc"
-#include "lest-testing.cc"
+#include "internal/lest-internal.h"
 
 
-#define LEST_TEST(test_group, test_name)    \
-    static_assert(sizeof(test_group) > 1, "Name of test group shouldn't be empty."); \
-    static_assert(sizeof(test_name) > 1, "Name of test case shouldn't be empty.");   \
-    std::cout << "Begining test.\n";
+
+#define LEST_TEST(test_group, test_name)                            \
+    LEST_TEST_(test_group, test_name, lest::testing::Test)
+
 
 #define TEST(test_group, test_name) LEST_TEST(test_group, test_name)
 
