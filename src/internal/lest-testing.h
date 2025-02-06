@@ -18,8 +18,8 @@ virtual void TestBody() = 0;
 
 };
 
-}
+}; // namespace testing
 
-};
+}; // namespace lest
 
 #endif // LEAST_TESTING_H
