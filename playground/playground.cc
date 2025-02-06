@@ -1,10 +1,8 @@
 #include <lest.h>
 
-
-
 int main(int argc, char const *argv[])
 {
-    TEST("group1", "case1");
-        
+    std::cout << LEST_VERSION << std::endl;    
+     
     return 0;
 }
