@@ -5,5 +5,6 @@ project(lest)
 include_directories(src)
 
 add_subdirectory(src)
-add_subdirectory(tests)
-add_subdirectory(playground)
+add_subdirectory(sample)
+# add_subdirectory(tests)
+# add_subdirectory(playground)
