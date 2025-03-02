@@ -10,9 +10,7 @@ namespace testing {
 class Test {
 public:
     Test(const std::string& test_group, const std::string& test_name) 
-        : group_name_(test_group), test_name_(test_name) {
-        RegisterTest();
-    }
+        : group_name_(test_group), test_name_(test_name) { }
 
     virtual ~Test() = default;
 
@@ -29,9 +27,6 @@ protected:
     virtual void TestBody() = 0;
 
 private:
-    void RegisterTest() {
-
-    }
 
     std::string group_name_;
     std::string test_name_;
