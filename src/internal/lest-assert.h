@@ -13,7 +13,7 @@ namespace lest {
 /**
  * consider a better way to implement assert.
  */
-template <typename t1, typename t2>
+// template <typename t1, typename t2>
 
 } // namespace lest
 
