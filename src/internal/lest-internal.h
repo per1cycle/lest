@@ -7,22 +7,22 @@
 #include <iostream>
 #include <chrono>
 
-#define LEST_STRINGIFY_(test_name, test_group) test_group##_##test_name##_Test
 
-#define LEST_TEST_(test_name, test_group) \
-    class LEST_STRINGIFY_(test_name, test_group) : public lest::testing::Test { \
+#define LEST_CLASS_NAME(test_group, test_name) test_group##_##test_name##_Test
+
+#define LEST_TEST_(test_name, test_group, parent_class) \
+    class LEST_CLASS_NAME(test_name, test_group): public parent_class { \
     public: \
-        LEST_STRINGIFY_(test_name, test_group)() : Test(#test_group, #test_name) {} \
+        LEST_CLASS_NAME(test_name, test_group)() : Test(#test_group, #test_name) {} \
     protected: \
         void TestBody() override; \
     }; \
-    static LEST_STRINGIFY_(test_name, test_group) LEST_STRINGIFY_(test_name, test_group); \
-    void LEST_STRINGIFY_(test_name, test_group)::TestBody()
-        
-
+    static LEST_CLASS_NAME(test_name, test_group) LEST_CLASS_NAME(test_name, test_group); \
+    void LEST_CLASS_NAME(test_name, test_group)::TestBody()
 
 namespace lest {
 namespace testing {
+class UnitTestImpl;
 
 class TestResult {
 public:
@@ -38,7 +38,7 @@ class UnitTest {
 public:
     UnitTest(const std::string& group, const std::string& name)
         : group_name(group), test_name(name) {
-        UnitTestImpl::GetInstance().RegisterTest(this);
+        
     }
 
     virtual ~UnitTest() = default;
@@ -54,9 +54,8 @@ protected:
 
 class UnitTestImpl {
 public:
-    static UnitTestImpl& GetInstance() {
-        static UnitTestImpl instance;
-        return instance;
+    static void GetInstance() {
+
     }
 
     void RegisterTest(UnitTest* test) {
@@ -101,8 +100,5 @@ private:
 
 } // namespace testing
 } // namespace lest
-
-#define TEST(test_group, test_name) \
-    LEST_TEST_(test_name, test_group)
 
 #endif // LEST_INTERNAL_H

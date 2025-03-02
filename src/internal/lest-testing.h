@@ -30,25 +30,8 @@ protected:
 
 private:
     void RegisterTest() {
-        UnitTestImpl::GetInstance().RegisterTest(
-            new UnitTestWrapper(this)
-        );
+        
     }
-
-    // Wrapper to bridge Test and UnitTest
-    class UnitTestWrapper : public UnitTest {
-    public:
-        UnitTestWrapper(Test* test)
-            : UnitTest(test->GetGroupName(), test->GetTestName())
-            , test_(test) {}
-
-        void RunTest() override {
-            test_->Run();
-        }
-
-    private:
-        Test* test_;
-    };
 
     std::string group_name_;
     std::string test_name_;

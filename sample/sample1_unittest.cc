@@ -24,12 +24,19 @@ isprime(3) = 1
 isprime(4) = 0
 */
 int IsPrime(int n) {
-
+    if (n <= 1) {
+        return 0;
+    }
+    for (int i = 2; i < n / i; i++) {
+        if (n % i == 0) {
+            return 0;
+        }
+    }
+    return 1;
 }
 
 TEST(FactorialTest, Positive)
 {
-    EXPECT_EQ(Factorial(1), 1);
-    EXPECT_EQ(Factorial(0), 0);
+    
 }
 
