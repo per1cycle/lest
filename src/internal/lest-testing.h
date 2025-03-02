@@ -5,6 +5,8 @@ namespace lest
 {
 namespace testing
 {
+void InitLest();
+void InitLestImpl();
 
 class  Test
 {

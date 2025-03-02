@@ -13,6 +13,8 @@
 
 #define TEST(test_group, test_name) LEST_TEST(test_group, test_name)
 
+static int RUN() { lest::testing::UnitTest::GetInstance()->Run(); }
 
-static int RUN() {}
+
+
 #endif // LEST_H
