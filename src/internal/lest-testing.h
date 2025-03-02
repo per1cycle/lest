@@ -2,7 +2,7 @@
 #define LEAST_TESTING_H
 
 #include <string>
-#include "lest-internal.h"
+#include "internal/lest-define.h"
 
 namespace lest {
 namespace testing {
@@ -30,7 +30,7 @@ protected:
 
 private:
     void RegisterTest() {
-        
+
     }
 
     std::string group_name_;

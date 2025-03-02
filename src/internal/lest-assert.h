@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include <sstream>
 
+#include "internal/lest-define.h"
 namespace lest {
 
 class AssertionError : public std::runtime_error {

@@ -7,6 +7,7 @@
 #include <iostream>
 #include <chrono>
 
+#include "internal/lest-define.h"
 
 #define LEST_CLASS_NAME(test_group, test_name) test_group##_##test_name##_Test
 
@@ -17,7 +18,6 @@
     protected: \
         void TestBody() override; \
     }; \
-    static LEST_CLASS_NAME(test_name, test_group) LEST_CLASS_NAME(test_name, test_group); \
     void LEST_CLASS_NAME(test_name, test_group)::TestBody()
 
 namespace lest {
