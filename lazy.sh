@@ -8,5 +8,4 @@ build_playground() {
 
 build_whole() {
     echo "Building lest..."
-
 }

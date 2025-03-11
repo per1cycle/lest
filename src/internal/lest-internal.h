@@ -21,57 +21,35 @@
     protected: \
         void TestBody() override; \
     }; \
-	lest::UnitTest::RegisterTest(test_group, test_name); \
+	\
     void LEST_CLASS_NAME(test_name, test_group)::TestBody()
 
 namespace lest {
 namespace testing {
 class UnitTestImpl;
 
-class TestResult {
+class LEST_API UnitTest {
 public:
-    bool passed;
-    std::string message;
-    std::chrono::milliseconds duration;
-
-    TestResult(bool p = true, const std::string& msg = "", std::chrono::milliseconds dur = std::chrono::milliseconds(0))
-        : passed(p), message(msg), duration(dur) {}
-};
-
-class UnitTest {
+    static UnitTest* GetAllInstance();
 public:
-
-	static void Run();
-
-public:
-    UnitTest(const std::string& group, const std::string& name)
-        : group_name(group), test_name(name) {
-    }
-
+    UnitTest();
+    UnitTest(const std::string& group, const std::string& name);
     virtual ~UnitTest() = default;
-	
-    const std::string& GetGroupName() const { return group_name; }
-    const std::string& GetTestName() const { return test_name; }
-
+    UnitTestImpl *impl();
+    int Run();
 protected:
 	UnitTestImpl *impl_;
-    std::string group_name;
-    std::string test_name;
-	/**
-	 * the test is seperated into different groups
-	 */
-	std::unordered_map<std::string, std::vector<Test>> unit_tests_;
 };
 
 /**
  * the implementation for unit test.
+ * this class can:
+ * - register a test
+ * - run all tests
  */
-class UnitTestImpl {
+class LEST_API UnitTestImpl {
 public:
-    void RegisterTest(UnitTest* test) {
-		
-    }
-
+    void RegisterTest();
 private:
     UnitTestImpl() = default;
 };

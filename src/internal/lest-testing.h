@@ -9,34 +9,34 @@ namespace testing {
 
 class UnitTest;
 class TestInfo;
-
+/**
+ * Each time call TEST() macro will regiest a test to UnitTest.
+ */
 class Test {
+friend class TestInfo;
+
 public:
-    Test(const std::string& test_group, const std::string& test_name) 
-        : group_name_(test_group), test_name_(test_name) { }
+    Test(const std::string& test_group, const std::string& test_name);
 
     virtual ~Test() = default;
 
-    // Get test information
-    const std::string& GetTestName() const { return test_name_; }
-    const std::string& GetGroupName() const { return group_name_; }
-
-    // Run the test
-    void Run() {
-        TestBody();
-    }
-	
-	TestInfo *MakeAndRegister(std::string test_group, test_name)
-	{
-		
-	}
 protected:
     virtual void TestBody() = 0;
 
-private:
+};
 
-    std::string group_name_;
-    std::string test_name_;
+/**
+ * @brief The TestInfo class
+ * This class is used to store the information of a test
+ */
+class LEST_API TestInfo
+{
+public:
+    TestInfo();
+private:
+    const std::string test_group_name_;
+    const std::string test_name_;
+
 };
 
 } // namespace testing
