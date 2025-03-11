@@ -54,56 +54,26 @@ public:
     const std::string& GetTestName() const { return test_name; }
 
 protected:
+	UnitTestImpl *impl_;
     std::string group_name;
     std::string test_name;
-	std::vector<Test> tests_;
-
+	/**
+	 * the test is seperated into different groups
+	 */
+	std::unordered_map<std::string, std::vector<Test>> unit_tests_;
 };
 
+/**
+ * the implementation for unit test.
+ */
 class UnitTestImpl {
 public:
-    static void GetInstance() {
-
-    }
-
     void RegisterTest(UnitTest* test) {
-        tests.push_back(test);
-    }
-
-    int RunAllTests() {
-        int failed = 0;
-        std::cout << "\nRunning " << tests.size() << " tests...\n\n";
-
-        for (UnitTest* test : tests) {
-            try {
-                auto start = std::chrono::high_resolution_clock::now();
-                
-                std::cout << "[ RUN    ] " << test->GetGroupName() 
-                         << "::" << test->GetTestName() << "\n";
-                
-                test->RunTest();
-                
-                auto end = std::chrono::high_resolution_clock::now();
-                auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-                
-                std::cout << "[ PASSED ] (" << duration.count() << "ms)\n";
-            }
-            catch (const std::exception& e) {
-                failed++;
-                std::cout << "[ FAILED ] " << e.what() << "\n";
-            }
-        }
-
-        std::cout << "\nTest results: "
-                  << (tests.size() - failed) << " passed, "
-                  << failed << " failed\n";
-
-        return failed;
+		
     }
 
 private:
     UnitTestImpl() = default;
-    std::vector<UnitTest*> tests;
 };
 
 } // namespace testing

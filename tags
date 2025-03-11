@@ -25,6 +25,7 @@ CMAKE_COMMAND	build/src/Makefile	/^CMAKE_COMMAND = \/opt\/homebrew\/bin\/cmake$/
 CMAKE_SOURCE_DIR	build/Makefile	/^CMAKE_SOURCE_DIR = \/Users\/z\/Projects\/Github\/dev\/lest$/;"	m
 CMAKE_SOURCE_DIR	build/sample/Makefile	/^CMAKE_SOURCE_DIR = \/Users\/z\/Projects\/Github\/dev\/lest$/;"	m
 CMAKE_SOURCE_DIR	build/src/Makefile	/^CMAKE_SOURCE_DIR = \/Users\/z\/Projects\/Github\/dev\/lest$/;"	m
+CMP	src/internal/lest-compare.h	/^	CMP,$/;"	e	enum:lest::Compare::__anon1
 CMP	src/lest.h	/^#define CMP(/;"	d
 COMPILER_ID	build/CMakeFiles/3.31.5/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_ID /;"	d	file:
 COMPILER_ID	build/CMakeFiles/3.31.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_ID /;"	d	file:
@@ -143,15 +144,16 @@ DEC	build/CMakeFiles/3.31.5/CompilerIdC/CMakeCCompilerId.c	/^#define DEC(/;"	d	f
 DEC	build/CMakeFiles/3.31.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define DEC(/;"	d	file:
 DEC	build/CMakeFiles/3.31.6/CompilerIdC/CMakeCCompilerId.c	/^#define DEC(/;"	d	file:
 DEC	build/CMakeFiles/3.31.6/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define DEC(/;"	d	file:
+EQ	src/internal/lest-compare.h	/^	EQ,$/;"	e	enum:lest::Compare::__anon1
 EQ	src/lest.h	/^#define EQ(/;"	d
 EQUALS	build/Makefile	/^EQUALS = =$/;"	m
 EQUALS	build/sample/Makefile	/^EQUALS = =$/;"	m
 EQUALS	build/src/Makefile	/^EQUALS = =$/;"	m
 Factorial	sample/sample1_unittest.cc	/^int Factorial(int n) {$/;"	f
+GE	src/internal/lest-compare.h	/^	GE,$/;"	e	enum:lest::Compare::__anon1
 GE	src/lest.h	/^#define GE(/;"	d
 GetGroupName	src/internal/lest-internal.h	/^    const std::string& GetGroupName() const { return group_name; }$/;"	f	class:lest::testing::UnitTest
 GetGroupName	src/internal/lest-testing.h	/^    const std::string& GetGroupName() const { return group_name_; }$/;"	f	class:lest::testing::Test
-GetInstance	src/internal/lest-internal.h	/^    static void GetInstance() {$/;"	f	class:lest::testing::UnitTestImpl
 GetTestName	src/internal/lest-internal.h	/^    const std::string& GetTestName() const { return test_name; }$/;"	f	class:lest::testing::UnitTest
 GetTestName	src/internal/lest-testing.h	/^    const std::string& GetTestName() const { return test_name_; }$/;"	f	class:lest::testing::Test
 HEX	build/CMakeFiles/3.31.5/CompilerIdC/CMakeCCompilerId.c	/^#define HEX(/;"	d	file:
@@ -163,6 +165,7 @@ ID_VOID_MAIN	build/CMakeFiles/3.31.6/CompilerIdC/CMakeCCompilerId.c	/^# define I
 InitLest	src/lest-testing.cc	/^void InitLest()$/;"	f	namespace:lest::testing
 InitLestImpl	src/lest-testing.cc	/^void InitLestImpl()$/;"	f	namespace:lest::testing
 IsPrime	sample/sample1_unittest.cc	/^int IsPrime(int n) {$/;"	f
+LE	src/internal/lest-compare.h	/^	LE,$/;"	e	enum:lest::Compare::__anon1
 LE	src/lest.h	/^#define LE(/;"	d
 LEAST_ASSERT_H	src/internal/lest-assert.h	/^#define LEAST_ASSERT_H$/;"	d
 LEAST_TESTING_H	src/internal/lest-testing.h	/^#define LEAST_TESTING_H$/;"	d
@@ -179,10 +182,12 @@ LEST_VERSION	src/internal/lest-define.h	/^#define LEST_VERSION /;"	d
 LEST_VERSION_MAJOR	src/internal/lest-define.h	/^#define LEST_VERSION_MAJOR /;"	d
 LEST_VERSION_MINOR	src/internal/lest-define.h	/^#define LEST_VERSION_MINOR /;"	d
 Length	sample/sample2_unittest.cc	/^  size_t Length() const { return c_string_ == nullptr ? 0 : strlen(c_string_); }$/;"	f	class:MyString
+MakeAndRegister	src/internal/lest-testing.h	/^	TestInfo *MakeAndRegister(std::string test_group, test_name)$/;"	f	class:lest::testing::Test
 MyString	sample/sample2_unittest.cc	/^  MyString() : c_string_(nullptr) {}$/;"	f	class:MyString
 MyString	sample/sample2_unittest.cc	/^  MyString(const MyString& string) : c_string_(nullptr) {$/;"	f	class:MyString
 MyString	sample/sample2_unittest.cc	/^  explicit MyString(const char* a_c_string) : c_string_(nullptr) {$/;"	f	class:MyString
 MyString	sample/sample2_unittest.cc	/^class MyString {$/;"	c	file:
+NE	src/internal/lest-compare.h	/^	NE,$/;"	e	enum:lest::Compare::__anon1
 NE	src/lest.h	/^#define NE(/;"	d
 PLATFORM_ID	build/CMakeFiles/3.31.5/CompilerIdC/CMakeCCompilerId.c	/^#  define PLATFORM_ID /;"	d	file:
 PLATFORM_ID	build/CMakeFiles/3.31.5/CompilerIdC/CMakeCCompilerId.c	/^#  define PLATFORM_ID$/;"	d	file:
@@ -203,10 +208,9 @@ PLATFORM_ID	build/CMakeFiles/3.31.6/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# def
 RM	build/Makefile	/^RM = \/opt\/homebrew\/bin\/cmake -E rm -f$/;"	m
 RM	build/sample/Makefile	/^RM = \/opt\/homebrew\/bin\/cmake -E rm -f$/;"	m
 RM	build/src/Makefile	/^RM = \/opt\/homebrew\/bin\/cmake -E rm -f$/;"	m
-RUN	src/lest.h	/^static int RUN() { return 0; }$/;"	f
+RUN	src/lest.h	/^static int RUN() { $/;"	f
 RegisterTest	src/internal/lest-internal.h	/^    void RegisterTest(UnitTest* test) {$/;"	f	class:lest::testing::UnitTestImpl
 Run	src/internal/lest-testing.h	/^    void Run() {$/;"	f	class:lest::testing::Test
-RunAllTests	src/internal/lest-internal.h	/^    int RunAllTests() {$/;"	f	class:lest::testing::UnitTestImpl
 SHELL	build/Makefile	/^SHELL = \/bin\/sh$/;"	m
 SHELL	build/sample/Makefile	/^SHELL = \/bin\/sh$/;"	m
 SHELL	build/src/Makefile	/^SHELL = \/bin\/sh$/;"	m
@@ -280,6 +284,7 @@ duration	src/internal/lest-internal.h	/^    std::chrono::milliseconds duration;$
 fib	tests/test-assert-manual.cc	/^int fib(int n)$/;"	f
 group_name	src/internal/lest-internal.h	/^    std::string group_name;$/;"	m	class:lest::testing::UnitTest
 group_name_	src/internal/lest-testing.h	/^    std::string group_name_;$/;"	m	class:lest::testing::Test
+impl_	src/internal/lest-internal.h	/^	UnitTestImpl *impl_;$/;"	m	class:lest::testing::UnitTest
 info_arch	build/CMakeFiles/3.31.5/CompilerIdC/CMakeCCompilerId.c	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
 info_arch	build/CMakeFiles/3.31.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
 info_arch	build/CMakeFiles/3.31.6/CompilerIdC/CMakeCCompilerId.c	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
@@ -353,7 +358,7 @@ test_name_	src/internal/lest-testing.h	/^    std::string test_name_;$/;"	m	class
 testing	src/internal/lest-internal.h	/^namespace testing {$/;"	n	namespace:lest
 testing	src/internal/lest-testing.h	/^namespace testing {$/;"	n	namespace:lest
 testing	src/lest-testing.cc	/^namespace testing$/;"	n	namespace:lest	file:
-tests	src/internal/lest-internal.h	/^    std::vector<UnitTest*> tests;$/;"	m	class:lest::testing::UnitTestImpl
+unit_tests_	src/internal/lest-internal.h	/^	std::unordered_map<std::string, std::vector<Test>> unit_tests_;$/;"	m	class:lest::testing::UnitTest
 volatile	build/CMakeFiles/3.31.5/CompilerIdC/CMakeCCompilerId.c	/^# define volatile$/;"	d	file:
 volatile	build/CMakeFiles/3.31.6/CompilerIdC/CMakeCCompilerId.c	/^# define volatile$/;"	d	file:
 ~MyString	sample/sample2_unittest.cc	/^  ~MyString() { delete[] c_string_; }$/;"	f	class:MyString
