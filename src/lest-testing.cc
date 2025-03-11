@@ -1,9 +1,16 @@
+#include "internal/lest-testing.h"
+
 
 namespace lest
 {
 namespace testing
 {
-void InitLestImpl();
+void InitLestImpl()
+{
+	// 
+
+		
+}
 
 void InitLest()
 {

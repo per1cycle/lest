@@ -6,14 +6,15 @@
 #include <sstream>
 
 #include "internal/lest-define.h"
-
-#define EXPECT_EQ(expected, actual) lest::Assert::AreEqual(expected, actual)
+#include "internal/lest-compare.h"
 
 namespace lest {
 /**
  * consider a better way to implement assert.
  */
 // template <typename t1, typename t2>
+
+
 
 } // namespace lest
 

@@ -7,6 +7,9 @@
 namespace lest {
 namespace testing {
 
+class UnitTest;
+class TestInfo;
+
 class Test {
 public:
     Test(const std::string& test_group, const std::string& test_name) 
@@ -22,7 +25,11 @@ public:
     void Run() {
         TestBody();
     }
-
+	
+	TestInfo *MakeAndRegister(std::string test_group, test_name)
+	{
+		
+	}
 protected:
     virtual void TestBody() = 0;
 
