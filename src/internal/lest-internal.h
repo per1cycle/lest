@@ -8,6 +8,7 @@
 #include <chrono>
 
 #include "internal/lest-define.h"
+#include "internal/lest-testing.h"
 
 #define LEST_CLASS_NAME(test_group, test_name) test_group##_##test_name##_Test
 
@@ -41,9 +42,18 @@ public:
 class UnitTest {
 friend class UnitTestImpl;
 public:
-	UnitTestImpl *GetAllInstance() {
+    int RegisterTest(Test* test) {
+        return impl_->Register(test);
+    }
+
+	static UnitTestImpl *GetAllInstance() {
 		return impl_;
 	}	
+    
+    int RunAllTest()
+    {
+        return impl_->Run();
+    }
 public:
     UnitTest(const std::string& group, const std::string& name)
         : group_name(group), test_name(name) {
@@ -55,7 +65,7 @@ public:
     const std::string& GetTestName() const { return test_name; }
 
 protected:
-	UnitTestImpl *impl_;
+	static UnitTestImpl *impl_;
     std::string group_name;
     std::string test_name;
 	/**
@@ -69,12 +79,18 @@ protected:
  */
 class UnitTestImpl {
 public:
-    void RegisterTest(UnitTest* test) {
-		
+    int Register(Test* test) {
+		tests_.push_back(test);
+        return 0;
     }
+    int Run()
+    {
+        std::cout << "Running test from " << __FILE__ << std::endl;
 
+    }
 private:
     UnitTestImpl() = default;
+    std::vector<lest::testing::Test*> tests_;
 };
 
 } // namespace testing
