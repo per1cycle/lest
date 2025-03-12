@@ -47,7 +47,7 @@
 	LEST_ASSERT(lest::Compare::CMP, expression1, expression2, cmp_class)
 
 static int RUN() { 
-	lest::testing::UnitTest::GetAllInstance()->RunAllTest();
+	lest::testing::UnitTest::GetAllInstance()->Run();
 }
 
 

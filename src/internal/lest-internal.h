@@ -78,6 +78,7 @@ protected:
  * the implementation for unit test.
  */
 class UnitTestImpl {
+friend class UnitTest;
 public:
     int Register(Test* test) {
 		tests_.push_back(test);
@@ -86,9 +87,8 @@ public:
     int Run()
     {
         std::cout << "Running test from " << __FILE__ << std::endl;
-
     }
-private:
+public:
     UnitTestImpl() = default;
     std::vector<lest::testing::Test*> tests_;
 };
