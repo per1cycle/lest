@@ -1,12 +1,9 @@
 #include "internal/lest-internal.h"
-
+#include "internal/lest-define.h"
 namespace lest
 {
 namespace testing
 {
-bool UnitTest::debug_ = std::getenv("DEBUG");
-
-UnitTestImpl* UnitTest::impl_ = new UnitTestImpl();
 
 UnitTestImpl* UnitTest::impl(){
     return impl_;
@@ -17,15 +14,23 @@ UnitTestImpl* UnitTest::impl(){
  */
 UnitTest::UnitTest()
 {
-    if(UnitTest::debug_)
+    impl_ = new UnitTestImpl();
+    if(debug_)
         std::cout << "UnitTes::Consturctor called\n";
 }
 
 
-UnitTestImpl *UnitTest::GetAllInstance() 
+UnitTest *UnitTest::GetAllInstance() 
 {
-    return impl();
+    UnitTest instance;
+
+    return &instance;
 }
+
+int UnitTest::RegisterTest(Test* test)
+{
+    return impl()->Register(test);
+}   
 
 int UnitTest::RunAllTest()
 {
@@ -34,16 +39,21 @@ int UnitTest::RunAllTest()
 
 UnitTestImpl::UnitTestImpl()
 {
-    if(UnitTest::debug_)
+    std::cout << "Debug info in unittest impl: " << debug_ << std::endl;
+    if(debug_)
         std::cout << "UnitTestImpl::Constructor called\n";
+    tests_ = std::vector<Test*>();
 }
 
-Test* UnitTestImpl::Register(Test* test)
+int UnitTestImpl::Register(Test* test)
 {
-    if(UnitTest::debug_)
+    std::cout << "Debug info: " << debug_ << std::endl;
+    if(debug_) {
+        std::cout << "tests_ info: " << tests_.size() << std::endl;
         std::cout << "UnitTestImpl::Register called\n";
+    }
     tests_.push_back(test);
-    return nullptr;
+    return 0;
 }
 
 int UnitTestImpl::Run()
@@ -61,7 +71,6 @@ int UnitTestImpl::Run()
     
     return 0;
 }
-
 
 } // namespace testing
 } // namespace lest

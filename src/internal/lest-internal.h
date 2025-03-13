@@ -19,12 +19,12 @@
     class LEST_CLASS_NAME(test_name, test_group): public parent_class { \
     public: \
         LEST_CLASS_NAME(test_name, test_group)() : Test(#test_group, #test_name) {} \
-    protected: \
+    public: \
         void TestBody() override; \
-        static Test * const test_; \
+        static int const register_result_; \
     }; \
-    lest::testing::Test *const LEST_CLASS_NAME(test_name, test_group)::test_ = \
-        lest::testing::UnitTest::GetAllInstance()->Register(new LEST_CLASS_NAME(test_name, test_group)); \
+    int const LEST_CLASS_NAME(test_name, test_group)::register_result_ = \
+        lest::testing::UnitTest::GetAllInstance()->RegisterTest(new LEST_CLASS_NAME(test_name, test_group)); \
     void LEST_CLASS_NAME(test_name, test_group)::TestBody()
 
 namespace lest {
@@ -43,9 +43,10 @@ public:
 class UnitTest {
 friend class UnitTestImpl;
 public:
-	static UnitTestImpl *GetAllInstance();    
+	static UnitTest *GetAllInstance();    
     int RunAllTest();
-    static UnitTestImpl *impl();
+    int RegisterTest(Test* test);
+    UnitTestImpl *impl();
 
 public:
     UnitTest();
@@ -53,8 +54,7 @@ public:
     virtual ~UnitTest() = default;
 	
 public:
-    static bool debug_;
-	static UnitTestImpl *impl_;
+	UnitTestImpl *impl_;
 	/**
 	 * the test is seperated into different groups
 	 */
@@ -68,12 +68,12 @@ friend class UnitTest;
 public:
     // FIXME: when register a test should return test info
     // instead of Test.
-    Test* Register(Test* test);
+    int Register(Test* test);
     int Run();
     
 public:
     UnitTestImpl();
-    std::vector<lest::testing::Test*> tests_;
+    std::vector<Test*> tests_;
 };
 
 } // namespace testing
