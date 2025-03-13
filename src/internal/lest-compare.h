@@ -23,7 +23,12 @@ enum {
 
 public:
 	Compare();
-
+	~Compare();
+	template<typename T>
+	int EqImpl(T expression1, T expression2)
+	{
+		return expression1 == expression2;
+	}
 private:
 
 };
