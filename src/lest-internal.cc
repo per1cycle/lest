@@ -21,10 +21,6 @@ UnitTest::UnitTest()
         std::cout << "UnitTes::Consturctor called\n";
 }
 
-Test* UnitTest::RegisterTest(Test* test) 
-{
-    return impl()->Register(test);
-}
 
 UnitTestImpl *UnitTest::GetAllInstance() 
 {

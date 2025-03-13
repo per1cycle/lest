@@ -43,7 +43,6 @@ public:
 class UnitTest {
 friend class UnitTestImpl;
 public:
-    Test* RegisterTest(Test* test);
 	static UnitTestImpl *GetAllInstance();    
     int RunAllTest();
     static UnitTestImpl *impl();
