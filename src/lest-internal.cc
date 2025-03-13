@@ -46,7 +46,7 @@ UnitTestImpl::UnitTestImpl()
 int UnitTestImpl::Register(Test* test)
 {
     tests_.push_back(test);
-    std::cout << "tests_ info on register test: " << tests_.size() << std::endl;
+    std::cout << "tests_ info after register test: " << tests_.size() << std::endl;
     return 0;
 }
 
@@ -60,8 +60,6 @@ int UnitTestImpl::Run()
          it != tests_.end(); 
          it++)
     {
-        std::cout << "start running tests: " << std::endl;
-        std::cout << "====================================" << std::endl;
 
     }
     
