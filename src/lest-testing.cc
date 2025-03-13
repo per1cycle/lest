@@ -16,7 +16,7 @@ Test::Test(const std::string& test_group, const std::string& test_name)
 
 TestInfo::TestInfo()
 {
-
+    
 }
 
 } // namespace testing

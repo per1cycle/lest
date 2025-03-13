@@ -22,14 +22,16 @@ UnitTest::UnitTest()
 
 UnitTest *UnitTest::GetAllInstance() 
 {
-    UnitTest instance;
-
+    static UnitTest instance;
     return &instance;
 }
 
 int UnitTest::RegisterTest(Test* test)
 {
-    return impl()->Register(test);
+    if (test)
+        return impl()->Register(test);
+    else 
+        return 1;
 }   
 
 int UnitTest::RunAllTest()
@@ -40,7 +42,6 @@ int UnitTest::RunAllTest()
 UnitTestImpl::UnitTestImpl()
 {
     tests_ = std::vector<Test*>();
-    std::cout << "tests_ info in unittest impl init: " << tests_.size() << std::endl;
 }
 
 int UnitTestImpl::Register(Test* test)
@@ -55,12 +56,14 @@ int UnitTestImpl::Run()
     int success_count = 0;
     int failed_count = 0;
     int skip_count = 0;
-
-    for (std::vector<Test*>::iterator it;
+    
+    std::cout << "[==========] Running " << tests_.size() << " tests.\n";
+    for (auto it = tests_.begin();
          it != tests_.end(); 
          it++)
     {
-
+        Test *current_test = *it;
+        current_test->TestBody();
     }
     
     return 0;

@@ -9,13 +9,15 @@
 #include "internal/lest-compare.h"
 
 #define LEST_ASSERT(CONDITION, expression1, expression2) \
-    ;
+    LEST_ASSERT_(CONDITION, expression1, expression2)
 
 namespace lest {
+
 /**
  * consider a better way to implement assert.
  */
 // template <typename t1, typename t2>
+
 
 } // namespace lest
 

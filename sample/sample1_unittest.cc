@@ -38,9 +38,11 @@ int IsPrime(int n) {
 TEST(FactorialTest, Positive)
 {
     // EXPECT_EQ(Factorial(1), 1);
+    std::cout << "FactorialTest Positive\n";
 }
 
 TEST(FactorialTest, Negative)
 {
     // EXPECT_EQ(Factorial(1), 1);
+    std::cout << "FactorialTest Negative\n";
 }
