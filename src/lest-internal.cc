@@ -39,20 +39,14 @@ int UnitTest::RunAllTest()
 
 UnitTestImpl::UnitTestImpl()
 {
-    std::cout << "Debug info in unittest impl: " << debug_ << std::endl;
-    if(debug_)
-        std::cout << "UnitTestImpl::Constructor called\n";
     tests_ = std::vector<Test*>();
+    std::cout << "tests_ info in unittest impl init: " << tests_.size() << std::endl;
 }
 
 int UnitTestImpl::Register(Test* test)
 {
-    std::cout << "Debug info: " << debug_ << std::endl;
-    if(debug_) {
-        std::cout << "tests_ info: " << tests_.size() << std::endl;
-        std::cout << "UnitTestImpl::Register called\n";
-    }
     tests_.push_back(test);
+    std::cout << "tests_ info on register test: " << tests_.size() << std::endl;
     return 0;
 }
 
@@ -66,6 +60,8 @@ int UnitTestImpl::Run()
          it != tests_.end(); 
          it++)
     {
+        std::cout << "start running tests: " << std::endl;
+        std::cout << "====================================" << std::endl;
 
     }
     

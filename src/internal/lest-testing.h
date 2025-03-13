@@ -22,7 +22,7 @@ public:
     virtual ~Test() = default;
 
 public:
-    virtual void TestBody() = 0;
+    virtual int TestBody() = 0;
 
 };
 
