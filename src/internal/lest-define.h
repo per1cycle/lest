@@ -9,7 +9,7 @@
 /**
  * global debug info
  */
-static const int debug_ = 1;
+static const int debug_ = 0;
 
 // define API
 #ifdef LEST_API 

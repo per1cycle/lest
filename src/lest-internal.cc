@@ -16,7 +16,7 @@ UnitTest::UnitTest()
 {
     impl_ = new UnitTestImpl();
     if(debug_)
-        std::cout << "UnitTes::Consturctor called\n";
+        std::cout << "UnitTest::Consturctor called\n";
 }
 
 
