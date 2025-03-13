@@ -38,11 +38,38 @@ int IsPrime(int n) {
 TEST(FactorialTest, Positive)
 {
     std::cout << "FactorialTest Positive\n";
+    EQ(Factorial(0), 1);
     EQ(Factorial(1), 1);
+    EQ(Factorial(2), 2);
+    EQ(Factorial(3), 6);
+    EQ(Factorial(4), 24);
+    EQ(Factorial(5), 120);
 }
 
 TEST(FactorialTest, Negative)
 {
-    // EXPECT_EQ(Factorial(1), 1);
     std::cout << "FactorialTest Negative\n";
+    EQ(Factorial(-1), 1);  // Assuming your function treats negative inputs as 1
+    EQ(Factorial(-5), 1);
+}
+
+TEST(IsPrimeTest, PrimeNumbers)
+{
+    std::cout << "IsPrimeTest PrimeNumbers\n";
+    EQ(IsPrime(2), 1);
+    EQ(IsPrime(3), 1);
+    EQ(IsPrime(5), 1);
+    EQ(IsPrime(7), 1);
+    EQ(IsPrime(11), 1);
+}
+
+TEST(IsPrimeTest, NonPrimeNumbers)
+{
+    std::cout << "IsPrimeTest NonPrimeNumbers\n";
+    EQ(IsPrime(0), 0);
+    EQ(IsPrime(1), 0);
+    EQ(IsPrime(4), 0);
+    EQ(IsPrime(6), 0);
+    EQ(IsPrime(9), 0);
+    EQ(IsPrime(10), 0);
 }
