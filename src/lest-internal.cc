@@ -58,6 +58,10 @@ int UnitTestImpl::Run()
     int skip_count = 0;
     
     std::cout << "[==========] Running " << tests_.size() << " tests.\n";
+
+    /**
+     * Todo: add exception handler for running the test.
+     */
     for (auto it = tests_.begin();
          it != tests_.end(); 
          it++)
@@ -66,6 +70,7 @@ int UnitTestImpl::Run()
         current_test->TestBody();
     }
     
+    std::cout << "[==========] Finish running " << tests_.size() << "tests, No error.\n";
     return 0;
 }
 

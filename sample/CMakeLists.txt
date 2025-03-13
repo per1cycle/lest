@@ -6,3 +6,5 @@ endfunction(add_sample name)
 
 add_sample(sample1_unittest)
 add_sample(sample2_unittest)
+# add_sample(sample2_unittest)
+add_sample(sample4_unittest)
