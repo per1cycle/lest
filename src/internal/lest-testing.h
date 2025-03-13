@@ -16,11 +16,12 @@ class Test {
 friend class TestInfo;
 
 public:
+    Test();
     Test(const std::string& test_group, const std::string& test_name);
 
     virtual ~Test() = default;
 
-protected:
+public:
     virtual void TestBody() = 0;
 
 };

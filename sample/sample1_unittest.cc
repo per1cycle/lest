@@ -37,9 +37,6 @@ int IsPrime(int n) {
 
 TEST(FactorialTest, Positive)
 {
-
+    // EXPECT_EQ(Factorial(1), 1);
 }
 
-TEST(FactorialTest, Negative)
-{
-}
