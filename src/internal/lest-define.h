@@ -1,7 +1,6 @@
 #ifndef LEST_DEFINE_H
 #define LEST_DEFINE_H
 // define version 
-
 #define LEST_VERSION_MAJOR "0"
 #define LEST_VERSION_MINOR "1"
 #define LEST_STRINGIFY_VERSION(major, minor) major "." minor
@@ -10,7 +9,7 @@
 /**
  * global debug info
  */
-static const int debug_ = std::atoi(std::getenv("DEBUG"));
+static const int debug_ = 1;
 
 // define API
 #ifdef LEST_API 

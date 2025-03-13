@@ -10,7 +10,7 @@
 #include "internal/lest-testing.h"
 #include "internal/lest-define.h"
 #include "internal/lest-testing.h"
-
+#include "internal/lest-compare.h"
 #include <iostream>
 
 // every time call the TEST macro will register a unit test class

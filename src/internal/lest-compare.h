@@ -1,5 +1,7 @@
 #ifndef LEST_COMPARE_H
 #define LEST_COMPARE_H
+#include "internal/lest-define.h"
+#include "internal/lest-assert.h"
 
 namespace lest
 {
