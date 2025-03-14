@@ -35,7 +35,9 @@ class AssertHelper
 public:
     AssertHelper();
 public:
-
+    // thie function wrap a test body which does not let whole program crash even error.
+    static int WrapRuntimeError();
+    int TODO();
 };
 
 } // namespace lest
