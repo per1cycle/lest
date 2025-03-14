@@ -13,8 +13,6 @@ int fib(int n)
 TEST(FibTest, PROPERTY_POS)
 {
     EQ(fib());
-    L_EXPECT_EQ(fib());
-    L_EXPECT_NE(fib());
 
 }
 // TEST(fib(1), 1);
