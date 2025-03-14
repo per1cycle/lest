@@ -17,7 +17,11 @@
 #define LEST_ASSERT_(CONDITION, expression1, expression2) \
     switch (CONDITION) { \
         case lest::Compare::EQ: \
-            lest::Compare::Eq
+            if (!(expression1 == expression2)) { \
+                std::ostringstream oss; \
+                oss << "Assertion failed: " << #expression1 << " == " << #expression2 << " (" << expression1 << " vs " << expression2 << ")"; \
+                throw std::runtime_error(oss.str()); \
+            } \
             break; \
     }
 
