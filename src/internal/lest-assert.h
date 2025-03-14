@@ -24,11 +24,19 @@
             } \
             break; \
     }
+
 namespace lest {
 
 /**
  * consider a better way to implement assert.
  */
+class AssertHelper
+{
+public:
+    AssertHelper();
+public:
+
+};
 
 } // namespace lest
 

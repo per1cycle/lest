@@ -31,6 +31,7 @@ public:
 	{
 		return expression1 == expression2;
 	}
+	
 private:
 
 };

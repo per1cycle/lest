@@ -1,3 +1,4 @@
+# add generator for lest.
 add_library(liblest 
             lest.cc
             lest-internal.cc
