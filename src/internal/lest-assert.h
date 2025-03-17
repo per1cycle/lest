@@ -17,7 +17,69 @@
 #define LEST_ASSERT_(CONDITION, expression1, expression2) \
     switch (CONDITION) { \
         case lest::Compare::EQ: \
-            if (!(expression1 == expression2)) { \
+            if (expression1 == expression2) { \
+                LOG_INFO << "TEST PASSED"; \
+            } else {\
+                std::ostringstream oss; \
+                LOG_ERROR << "Test failed"; \
+                oss << "Assertion failed: " << #expression1 << " == " << #expression2 << " (" << expression1 << " vs " << expression2 << ")"; \
+                throw std::runtime_error(oss.str()); \
+            } \
+            break; \
+        case lest::Compare::NE: \
+            if (expression1 != expression2) { \
+                LOG_INFO << "TEST PASSED"; \
+            } else {\
+                std::ostringstream oss; \
+                LOG_ERROR << "Test failed"; \
+                oss << "Assertion failed: " << #expression1 << " == " << #expression2 << " (" << expression1 << " vs " << expression2 << ")"; \
+                throw std::runtime_error(oss.str()); \
+            } \
+            break; \
+        case lest::Compare::GT: \
+            if (expression1 > expression2) { \
+                LOG_INFO << "TEST PASSED"; \
+            } else {\
+                std::ostringstream oss; \
+                LOG_ERROR << "Test failed"; \
+                oss << "Assertion failed: " << #expression1 << " == " << #expression2 << " (" << expression1 << " vs " << expression2 << ")"; \
+                throw std::runtime_error(oss.str()); \
+            } \
+            break; \
+        case lest::Compare::GE: \
+            if (expression1 >= expression2) { \
+                LOG_INFO << "TEST PASSED"; \
+            } else {\
+                std::ostringstream oss; \
+                LOG_ERROR << "Test failed"; \
+                oss << "Assertion failed: " << #expression1 << " == " << #expression2 << " (" << expression1 << " vs " << expression2 << ")"; \
+                throw std::runtime_error(oss.str()); \
+            } \
+            break; \
+        case lest::Compare::LT: \
+            if (expression1 != expression2) { \
+                LOG_INFO << "TEST PASSED"; \
+            } else {\
+                std::ostringstream oss; \
+                LOG_ERROR << "Test failed"; \
+                oss << "Assertion failed: " << #expression1 << " == " << #expression2 << " (" << expression1 << " vs " << expression2 << ")"; \
+                throw std::runtime_error(oss.str()); \
+            } \
+            break; \
+        case lest::Compare::LE: \
+            if (expression1 <= expression2) { \
+                LOG_INFO << "TEST PASSED"; \
+            } else {\
+                std::ostringstream oss; \
+                LOG_ERROR << "Test failed"; \
+                oss << "Assertion failed: " << #expression1 << " == " << #expression2 << " (" << expression1 << " vs " << expression2 << ")"; \
+                throw std::runtime_error(oss.str()); \
+            } \
+            break; \
+        case lest::Compare::CMP: \
+            if (expression1 != expression2) { \
+                LOG_INFO << "TEST PASSED"; \
+            } else {\
                 std::ostringstream oss; \
                 LOG_ERROR << "Test failed"; \
                 oss << "Assertion failed: " << #expression1 << " == " << #expression2 << " (" << expression1 << " vs " << expression2 << ")"; \

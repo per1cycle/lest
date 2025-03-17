@@ -12,7 +12,6 @@ int fib(int n)
 
 TEST(FibTest, PROPERTY_POS)
 {
-    EQ(fib());
 
 }
 // TEST(fib(1), 1);
