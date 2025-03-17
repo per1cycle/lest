@@ -19,6 +19,7 @@
         case lest::Compare::EQ: \
             if (!(expression1 == expression2)) { \
                 std::ostringstream oss; \
+                LOG_ERROR << "Test failed"; \
                 oss << "Assertion failed: " << #expression1 << " == " << #expression2 << " (" << expression1 << " vs " << expression2 << ")"; \
                 throw std::runtime_error(oss.str()); \
             } \

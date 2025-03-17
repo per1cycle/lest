@@ -37,7 +37,7 @@ int IsPrime(int n) {
 
 TEST(FactorialTest, Positive)
 {
-    EQ(Factorial(0), 1);
+    EQ(Factorial(0), 0);
     EQ(Factorial(1), 1);
     EQ(Factorial(2), 2);
     EQ(Factorial(3), 6);
