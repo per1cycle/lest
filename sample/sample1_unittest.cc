@@ -37,7 +37,6 @@ int IsPrime(int n) {
 
 TEST(FactorialTest, Positive)
 {
-    std::cout << "FactorialTest Positive\n";
     EQ(Factorial(0), 1);
     EQ(Factorial(1), 1);
     EQ(Factorial(2), 2);

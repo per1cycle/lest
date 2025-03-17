@@ -24,6 +24,9 @@ public:
 public:
     virtual int TestBody() = 0;
 
+public:
+    std::string test_group_;
+    std::string test_name_;
 };
 
 /**
