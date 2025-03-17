@@ -22,7 +22,7 @@ public:
     virtual ~Test() = default;
 
 public:
-    virtual int TestBody() = 0;
+    virtual void TestBody() = 0;
 
 public:
     std::string test_group_;

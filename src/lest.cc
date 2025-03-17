@@ -4,6 +4,6 @@
 
 int main(int argc, char **argv)
 {
-    std::cout << "Running test from " << __FILE__ << std::endl;
+    LOG << "Running test from " << __FILE__;
     return RUN();
 }

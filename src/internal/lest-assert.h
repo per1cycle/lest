@@ -26,7 +26,7 @@
     }
 
 namespace lest {
-
+namespace assert{
 /**
  * consider a better way to implement assert.
  */
@@ -40,6 +40,7 @@ public:
     int TODO();
 };
 
+} // namespace assert
 } // namespace lest
 
 #endif // LEAST_ASSERT_H

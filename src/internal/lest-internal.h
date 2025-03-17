@@ -20,12 +20,12 @@
     public: \
         LEST_CLASS_NAME(test_name, test_group)() : Test(#test_group, #test_name) {} \
     public: \
-        int TestBody() override; \
+        void TestBody() override; \
         static int const register_result_; \
     }; \
     int const LEST_CLASS_NAME(test_name, test_group)::register_result_ = \
         lest::testing::UnitTest::GetAllInstance()->RegisterTest(new LEST_CLASS_NAME(test_name, test_group)()); \
-    int LEST_CLASS_NAME(test_name, test_group)::TestBody()
+    void LEST_CLASS_NAME(test_name, test_group)::TestBody()
 
 namespace lest {
 namespace testing {

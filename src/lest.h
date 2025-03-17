@@ -46,7 +46,7 @@
 
 static int RUN()
 {
-    lest::testing::UnitTest::GetAllInstance()->RunAllTest();
+    return lest::testing::UnitTest::GetAllInstance()->RunAllTest();
 }
 
 #endif // LEST_H
