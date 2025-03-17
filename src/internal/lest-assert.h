@@ -8,8 +8,65 @@
 #include "internal/lest-define.h"
 #include "internal/lest-compare.h"
 
+#define LEST_EXPECT(CONDITION, expression1, expression2) \
+    LEST_EXPECT_(CONDITION, expression1, expression2) 
+
 #define LEST_ASSERT(CONDITION, expression1, expression2) \
     LEST_ASSERT_(CONDITION, expression1, expression2)
+
+#define LEST_EXPECT_(CONDITION, expression1, expression2) \
+    switch (CONDITION) { \
+        case lest::Compare::EQ: \
+            if (expression1 == expression2) { \
+                LOG_INFO << "TEST PASSED"; \
+            } else {\
+                LOG_ERROR << "Expect:" << expression1 << ", But got: " << expression2; \
+            } \
+            break; \
+        case lest::Compare::NE: \
+            if (expression1 != expression2) { \
+                LOG_INFO << "TEST PASSED"; \
+            } else {\
+                LOG_ERROR << "Expect: " << expression1 << " != " << expression2 << ", But got an EQ"; \
+            } \
+            break; \
+        case lest::Compare::GT: \
+            if (expression1 > expression2) { \
+                LOG_INFO << "TEST PASSED"; \
+            } else {\
+                LOG_ERROR << "Expect: " << expression1 << " > " << expression2; \
+            } \
+            break; \
+        case lest::Compare::GE: \
+            if (expression1 >= expression2) { \
+                LOG_INFO << "TEST PASSED"; \
+            } else {\
+                LOG_ERROR << "Expect: " << expression1 << " >= " << expression2; \
+            } \
+            break; \
+        case lest::Compare::LT: \
+            if (expression1 != expression2) { \
+                LOG_INFO << "TEST PASSED"; \
+            } else {\
+                LOG_ERROR << "Expect: " << expression1 << " < " << expression2; \
+            } \
+            break; \
+        case lest::Compare::LE: \
+            if (expression1 <= expression2) { \
+                LOG_INFO << "TEST PASSED"; \
+            } else {\
+                LOG_ERROR << "Expect: " << expression1 << " <= " << expression2; \
+            } \
+            break; \
+        case lest::Compare::CMP: \
+            if (expression1 != expression2) { \
+                LOG_INFO << "TEST PASSED"; \
+            } else {\
+                LOG_ERROR << "Custom comare class Expect: " << expression1 << "TODO: compare class." << expression2; \
+            } \
+            break; \
+    }
+
 
 /**
  * use switch case for implement the comparasion

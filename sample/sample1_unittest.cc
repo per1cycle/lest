@@ -47,14 +47,12 @@ TEST(FactorialTest, Positive)
 
 TEST(FactorialTest, Negative)
 {
-    std::cout << "FactorialTest Negative\n";
     EQ(Factorial(-1), 1);  // Assuming your function treats negative inputs as 1
     EQ(Factorial(-5), 1);
 }
 
 TEST(IsPrimeTest, PrimeNumbers)
 {
-    std::cout << "IsPrimeTest PrimeNumbers\n";
     EQ(IsPrime(2), 1);
     EQ(IsPrime(3), 1);
     EQ(IsPrime(5), 1);
@@ -64,7 +62,6 @@ TEST(IsPrimeTest, PrimeNumbers)
 
 TEST(IsPrimeTest, NonPrimeNumbers)
 {
-    std::cout << "IsPrimeTest NonPrimeNumbers\n";
     EQ(IsPrime(0), 0);
     EQ(IsPrime(1), 0);
     EQ(IsPrime(4), 0);

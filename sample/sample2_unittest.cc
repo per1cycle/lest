@@ -100,8 +100,6 @@ void MyString::Set(const char* a_c_string) {
 
 TEST(MyString, Constructor)
 {
-    std::cout << "MyString Constructor Test\n";
-    
     MyString empty_string;
     EQ(empty_string.Length(), 0);
 
@@ -117,8 +115,6 @@ TEST(MyString, Constructor)
 
 TEST(MyString, SetMethod)
 {
-    std::cout << "MyString Set Method Test\n";
-
     MyString str;
     str.Set("NewString");
     EQ(strcmp(str.c_string(), "NewString"), 0);

@@ -30,25 +30,25 @@
  */
 
 #define EQ(expression1, expression2) \
-    LEST_ASSERT(lest::Compare::EQ, expression1, expression2)
+    LEST_EXPECT(lest::Compare::EQ, expression1, expression2)
 
 #define NE(expression1, expression2) \
-    LEST_ASSERT(lest::Compare::NE, expression1, expression2)
+    LEST_EXPECT(lest::Compare::NE, expression1, expression2)
 
 #define GE(expression1, expression2) \
-    LEST_ASSERT(lest::Compare::GE, expression1, expression2)
+    LEST_EXPECT(lest::Compare::GE, expression1, expression2)
 
 #define GT(expression1, expression2) \
-    LEST_ASSERT(lest::Compare::GT, expression1, expression2)
+    LEST_EXPECT(lest::Compare::GT, expression1, expression2)
 
 #define LE(expression1, expression2) \
-    LEST_ASSERT(lest::Compare::LE, expression1, expression2)
+    LEST_EXPECT(lest::Compare::LE, expression1, expression2)
 
 #define LT(expression1, expression2) \
-    LEST_ASSERT(lest::Compare::LT, expression1, expression2)
+    LEST_EXPECT(lest::Compare::LT, expression1, expression2)
 
 #define CMP(expression1, expression2, cmp_class) \
-    LEST_ASSERT_CUSTOM_CMP(lest::Compare::CMP, expression1, expression2, cmp_class)
+    LEST_EXPECT_CUSTOM_CMP(lest::Compare::CMP, expression1, expression2, cmp_class)
 
 static int RUN()
 {
