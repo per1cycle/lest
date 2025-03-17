@@ -55,6 +55,7 @@ static int RUN()
 }
 
 // micro log migrate.
+// https://github.com/per1cycle/microlog/blob/main/log.hh
 enum Level { INFO = 0,
     WARNING,
     ERROR,
