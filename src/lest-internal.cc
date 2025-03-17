@@ -47,7 +47,6 @@ UnitTestImpl::UnitTestImpl()
 int UnitTestImpl::Register(Test* test)
 {
     tests_.push_back(test);
-    std::cout << "tests_ info after register test: " << tests_.size() << std::endl;
     return 0;
 }
 
@@ -67,10 +66,12 @@ int UnitTestImpl::Run()
          it++)
     {
         Test *current_test = *it;
+        LOG_INFO << "Running Test: #" << it - tests_.begin() << ": " << current_test->TestName();
         current_test->TestBody();
+        LOG_INFO << "Test #" << it - tests_.begin() << " Finished., return 1";
     }
     
-    std::cout << "[==========] Finish running " << tests_.size() << "tests, No error.\n";
+    std::cout << "[==========] Finish running " << tests_.size() << " tests, No error.\n";
     return 0;
 }
 

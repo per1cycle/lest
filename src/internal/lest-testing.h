@@ -23,7 +23,7 @@ public:
 
 public:
     virtual void TestBody() = 0;
-
+    std::string TestName();
 public:
     std::string test_group_;
     std::string test_name_;
