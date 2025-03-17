@@ -8,6 +8,7 @@ example:
 3 ! = 1 * 2 * 3 = 6
 */
 #include "lest.h"
+
 int Factorial(int n) {
     int result = 1;
     for (int i = 1; i <= n; i++) {
