@@ -39,6 +39,16 @@ int UnitTest::RunAllTest()
     return impl()->Run();
 }
 
+int UnitTest::AddFailedTest(Test* failed_test)
+{
+    return impl()->AddFailedTest(failed_test);
+}
+
+int UnitTest::HasFailedTest()
+{
+    return impl()->HasFailedTest();
+}
+
 UnitTestImpl::UnitTestImpl()
 {
     tests_ = std::vector<Test*>();

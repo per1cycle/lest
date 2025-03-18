@@ -47,7 +47,8 @@ public:
     int RunAllTest();
     int RegisterTest(Test* test);
     UnitTestImpl *impl();
-
+    int AddFailedTest(Test* fail_test);
+    int HasFailedTest();
 public:
     UnitTest();
 
