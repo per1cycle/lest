@@ -66,7 +66,7 @@ int UnitTestImpl::Run()
     int failed_count = 0;
     int skip_count = 0;
     
-    std::cout << "[==========] Running " << tests_.size() << " tests.\n";
+    LOG_INFO << "[==========] Running " << tests_.size() << " tests.";
 
     /**
      * Todo: add exception handler for running the test.
@@ -76,12 +76,18 @@ int UnitTestImpl::Run()
          it++)
     {
         Test *current_test = *it;
-        LOG_INFO << "Running Test: #" << it - tests_.begin() << ": " << current_test->TestName();
+        LOG_INFO << "Running Test: #" << it - tests_.begin() + 1 << ": " << current_test->TestName();
         current_test->TestBody();
-        LOG_INFO << "Test #" << it - tests_.begin() << " Finished., return 1";
+        LOG_INFO << "Test #" << it - tests_.begin() << " Finished.";
     }
-    
-    std::cout << "[==========] Finish running " << tests_.size() << " tests, No error.\n";
+
+    if (1)
+    {
+        LOG_WARNING << "Has " << HasFailedTest() << " failed tests.";
+    } else 
+    {
+        LOG_INFO << "[==========] Finish running " << tests_.size() << " tests, No error.\n";
+    }
     return 0;
 }
 

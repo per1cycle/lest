@@ -64,7 +64,7 @@
         case lest::Compare::CMP: \
             if (expression1 != expression2) { \
                 LOG_INFO << "TEST PASSED"; \
-            } else { \
+            } else {\
                 LOG_ERROR << "Custom comare class Expect: " << expression1 << "TODO: compare class." << expression2; \
             } \
             break; \
