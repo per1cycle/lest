@@ -13,21 +13,24 @@
 
 #define LEST_ASSERT(CONDITION, expression1, expression2) \
     LEST_ASSERT_(CONDITION, expression1, expression2)
-
+/**
+ * expect two condition,
+ * register to unittest fail if expect fail.
+ */
 #define LEST_EXPECT_(CONDITION, expression1, expression2) \
     switch (CONDITION) { \
         case lest::Compare::EQ: \
             if (expression1 == expression2) { \
                 LOG_INFO << "TEST PASSED"; \
             } else {\
-                LOG_ERROR << "Expect:" << expression1 << ", But got: " << expression2; \
+                LOG_ERROR << "Expect:" << expression1 << ", But got: " << expression2 << ", in " << typeid(this).name(); \
             } \
             break; \
         case lest::Compare::NE: \
             if (expression1 != expression2) { \
                 LOG_INFO << "TEST PASSED"; \
             } else {\
-                LOG_ERROR << "Expect: " << expression1 << " != " << expression2 << ", But got an EQ"; \
+                LOG_ERROR << "Expect: " << expression1 << " != " << expression2 << ", But got an EQ. "; \
             } \
             break; \
         case lest::Compare::GT: \
