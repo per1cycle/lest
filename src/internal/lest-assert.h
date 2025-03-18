@@ -22,7 +22,7 @@
         case lest::Compare::EQ: \
             if (expression1 == expression2) { \
                 LOG_INFO << "TEST PASSED"; \
-            } else {\
+            } else { \
                 LOG_ERROR << "Expect:" << expression1 << ", But got: " << expression2 << ", in " << typeid(this).name(); \
             } \
             break; \
@@ -36,35 +36,35 @@
         case lest::Compare::GT: \
             if (expression1 > expression2) { \
                 LOG_INFO << "TEST PASSED"; \
-            } else {\
+            } else { \
                 LOG_ERROR << "Expect: " << expression1 << " > " << expression2; \
             } \
             break; \
         case lest::Compare::GE: \
             if (expression1 >= expression2) { \
                 LOG_INFO << "TEST PASSED"; \
-            } else {\
+            } else { \
                 LOG_ERROR << "Expect: " << expression1 << " >= " << expression2; \
             } \
             break; \
         case lest::Compare::LT: \
             if (expression1 != expression2) { \
                 LOG_INFO << "TEST PASSED"; \
-            } else {\
+            } else { \
                 LOG_ERROR << "Expect: " << expression1 << " < " << expression2; \
             } \
             break; \
         case lest::Compare::LE: \
             if (expression1 <= expression2) { \
                 LOG_INFO << "TEST PASSED"; \
-            } else {\
+            } else { \
                 LOG_ERROR << "Expect: " << expression1 << " <= " << expression2; \
             } \
             break; \
         case lest::Compare::CMP: \
             if (expression1 != expression2) { \
                 LOG_INFO << "TEST PASSED"; \
-            } else {\
+            } else { \
                 LOG_ERROR << "Custom comare class Expect: " << expression1 << "TODO: compare class." << expression2; \
             } \
             break; \
