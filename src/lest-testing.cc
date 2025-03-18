@@ -17,15 +17,13 @@ Test::Test(const std::string& test_group, const std::string& test_name)
 
 std::string Test::TestName()
 {
-    return test_group_ + "_" + test_name_;
+    return test_group_ + "." + test_name_;
 }
 
 TestInfo::TestInfo()
 {
     
 }
-
-
 
 } // namespace testing
 
