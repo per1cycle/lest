@@ -1,7 +1,8 @@
 # add generator for lest.
 add_library(liblest 
             lest.cc
-            lest-internal.cc
-			lest-compare.cc
             lest-assert.cc
+			lest-compare.cc
+			lest-log.cc
+            lest-internal.cc
             lest-testing.cc)
