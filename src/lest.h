@@ -76,7 +76,9 @@
 
 static int RUN()
 {
+#ifdef __cplusplus
     return lest::testing::UnitTest::GetAllInstance()->RunAllTest();
+#endif
 }
 
 #endif // LEST_H

@@ -75,5 +75,16 @@ int UnitTestImpl::Run()
     return 0;
 }
 
+int UnitTestImpl::AddFailedTest(Test* fail_test)
+{
+    failed_.push_back(fail_test);
+    return 1;
+}
+
+int UnitTestImpl::HasFailedTest()
+{
+    return failed_.size();
+}
+
 } // namespace testing
 } // namespace lest

@@ -70,10 +70,13 @@ public:
     // instead of Test.
     int Register(Test* test);
     int Run();
-    
+    int AddFailedTest(Test* fail_test);
+    int HasFailedTest();
+     
 public:
     UnitTestImpl();
     std::vector<Test*> tests_;
+    std::vector<Test*> failed_;
 };
 
 } // namespace testing
