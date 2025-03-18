@@ -4,6 +4,7 @@ function(add_sample name)
     
 endfunction(add_sample name)
 
+add_sample(sample0_unittest)
 add_sample(sample1_unittest)
 add_sample(sample2_unittest)
 add_sample(sample3_unittest)

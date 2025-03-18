@@ -12,7 +12,15 @@
     LEST_EXPECT_(CONDITION, expression1, expression2) 
 
 #define LEST_ASSERT(CONDITION, expression1, expression2) \
-    LEST_ASSERT_(CONDITION, expression1, expression2)
+    LEST_ASSERT__(CONDITION, expression1, expression2)
+
+#define LEST_ASSERT__(CONDITION, expression1, expression2) \
+    switch (CONDITION) { \
+        case lest::Compare::EQ: \
+            lest::testing::UnitTest::GetAllInstance()->AddFailedTest(this) \
+            LOG_ERROR << "AS failed."; \
+            break; \
+    }
 /**
  * expect two condition,
  * register to unittest fail if expect fail.
