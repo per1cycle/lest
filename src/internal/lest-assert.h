@@ -12,15 +12,8 @@
     LEST_EXPECT_(CONDITION, expression1, expression2) 
 
 #define LEST_ASSERT(CONDITION, expression1, expression2) \
-    LEST_ASSERT__(CONDITION, expression1, expression2)
+    LEST_ASSERT_(CONDITION, expression1, expression2)
 
-#define LEST_ASSERT__(CONDITION, expression1, expression2) \
-    switch (CONDITION) { \
-        case lest::Compare::EQ: \
-            lest::testing::UnitTest::GetAllInstance()->AddFailedTest(this) \
-            LOG_ERROR << "AS failed."; \
-            break; \
-    }
 /**
  * expect two condition,
  * register to unittest fail if expect fail.
@@ -31,6 +24,7 @@
             if (expression1 == expression2) { \
                 LOG_INFO << "TEST PASSED"; \
             } else { \
+                lest::testing::UnitTest::GetAllInstance()->AddFailedTest(this); \
                 LOG_ERROR << "Expect:" << expression1 << ", But got: " << expression2 << ", in " << typeid(this).name(); \
             } \
             break; \
@@ -38,6 +32,7 @@
             if (expression1 != expression2) { \
                 LOG_INFO << "TEST PASSED"; \
             } else {\
+                lest::testing::UnitTest::GetAllInstance()->AddFailedTest(this); \
                 LOG_ERROR << "Expect: " << expression1 << " != " << expression2 << ", But got an EQ. "; \
             } \
             break; \
@@ -45,6 +40,7 @@
             if (expression1 > expression2) { \
                 LOG_INFO << "TEST PASSED"; \
             } else { \
+                lest::testing::UnitTest::GetAllInstance()->AddFailedTest(this); \
                 LOG_ERROR << "Expect: " << expression1 << " > " << expression2; \
             } \
             break; \
@@ -52,13 +48,15 @@
             if (expression1 >= expression2) { \
                 LOG_INFO << "TEST PASSED"; \
             } else { \
+                lest::testing::UnitTest::GetAllInstance()->AddFailedTest(this); \
                 LOG_ERROR << "Expect: " << expression1 << " >= " << expression2; \
             } \
             break; \
         case lest::Compare::LT: \
-            if (expression1 != expression2) { \
+            if (expression1 < expression2) { \
                 LOG_INFO << "TEST PASSED"; \
             } else { \
+                lest::testing::UnitTest::GetAllInstance()->AddFailedTest(this); \
                 LOG_ERROR << "Expect: " << expression1 << " < " << expression2; \
             } \
             break; \
@@ -66,6 +64,7 @@
             if (expression1 <= expression2) { \
                 LOG_INFO << "TEST PASSED"; \
             } else { \
+                lest::testing::UnitTest::GetAllInstance()->AddFailedTest(this); \
                 LOG_ERROR << "Expect: " << expression1 << " <= " << expression2; \
             } \
             break; \
@@ -73,6 +72,7 @@
             if (expression1 != expression2) { \
                 LOG_INFO << "TEST PASSED"; \
             } else {\
+                lest::testing::UnitTest::GetAllInstance()->AddFailedTest(this); \
                 LOG_ERROR << "Custom comare class Expect: " << expression1 << "TODO: compare class." << expression2; \
             } \
             break; \
@@ -125,7 +125,7 @@
             } \
             break; \
         case lest::Compare::LT: \
-            if (expression1 != expression2) { \
+            if (expression1 < expression2) { \
                 LOG_INFO << "TEST PASSED"; \
             } else {\
                 std::ostringstream oss; \

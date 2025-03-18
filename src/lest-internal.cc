@@ -81,7 +81,7 @@ int UnitTestImpl::Run()
         LOG_INFO << "Test #" << it - tests_.begin() << " Finished.";
     }
 
-    if (1)
+    if (HasFailedTest())
     {
         LOG_WARNING << "Has " << HasFailedTest() << " failed tests.";
     } else 
@@ -93,7 +93,7 @@ int UnitTestImpl::Run()
 
 int UnitTestImpl::AddFailedTest(Test* fail_test)
 {
-    failed_.push_back(fail_test);
+    failed_.insert(fail_test);
     return 1;
 }
 

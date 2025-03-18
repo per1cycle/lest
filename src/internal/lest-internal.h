@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <set>
 #include <functional>
 #include <iostream>
 #include <chrono>
@@ -77,7 +78,7 @@ public:
 public:
     UnitTestImpl();
     std::vector<Test*> tests_;
-    std::vector<Test*> failed_;
+    std::set<Test*> failed_;
 };
 
 } // namespace testing
