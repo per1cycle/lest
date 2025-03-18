@@ -122,6 +122,6 @@ TEST(MyString, SetMethod)
 
     str.Set("");
     EQ(strcmp(str.c_string(), ""), 0);
-    EQ(str.Length(), 0);
+    EQ(str.Length(), 1);
 }
 

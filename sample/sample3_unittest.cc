@@ -23,8 +23,10 @@ TEST(FooTest, pos)
 
 TEST(FooTest, neg)
 {
-    EQ(0, foo(-1));
+    GE(0, foo(-1));
+    LE(0, foo(-1));
 }
+
 TEST(AddTest, basic)
 {
     EQ(std::string("test_"), add_(std::string("test")));
