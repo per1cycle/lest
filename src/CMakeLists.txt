@@ -1,5 +1,5 @@
 # add generator for lest.
-add_library(liblest 
+add_library(liblest SHARED
             lest.cc
             lest-assert.cc
 			lest-compare.cc

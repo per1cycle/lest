@@ -6,7 +6,6 @@ namespace testing
 {
 Test::Test()
 {
-
 }
 
 Test::Test(const std::string& test_group, const std::string& test_name)
