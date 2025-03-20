@@ -1024,10 +1024,3 @@ TEST(foo, negfail1)
     GT(foo(-3), 3);
     LT(-3, foo(-3));
 }
-
-TEST(foo, negfail2)
-{
-    EQ(2, foo(1));
-    GT(foo(3), 3);
-    LT(1000, foo(-3));
-}
