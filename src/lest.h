@@ -34,6 +34,12 @@
 #define EQ(expression1, expression2) \
     LEST_EXPECT(lest::Compare::EQ, expression1, expression2)
 
+#define TRUE(expression1) \
+    LEST_EXPECT(lest::Compare::EQ, expression1, true)
+
+#define FALSE(expression1) \
+    LEST_EXPECT(lest::Compare::EQ, expression1, false)
+
 #define NE(expression1, expression2) \
     LEST_EXPECT(lest::Compare::NE, expression1, expression2)
 
@@ -54,6 +60,12 @@
 
 #define AEQ(expression1, expression2) \
     LEST_ASSERT(lest::Compare::EQ, expression1, expression2)
+
+#define ATRUE(expression1) \
+    LEST_ASSERT(lest::Compare::EQ, expression1, true)
+
+#define AFALSE(expression1) \
+    LEST_ASSERT(lest::Compare::EQ, expression1, false)
 
 #define ANE(expression1, expression2) \
     LEST_ASSERT(lest::Compare::NE, expression1, expression2)
