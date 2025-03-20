@@ -49,7 +49,7 @@ public:
 	template <typename T>
 	int LEImpl(T expression1, T expression2)
 	{
-		
+		return 0;
 	}
 
 	/**

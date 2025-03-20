@@ -17,7 +17,7 @@ friend class TestInfo;
 
 public:
     Test();
-    Test(const std::string& test_group, const std::string& test_name);
+    Test(const std::string& test_name, const std::string& test_group);
 
     virtual ~Test() = default;
 
