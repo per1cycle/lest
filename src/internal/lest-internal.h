@@ -16,7 +16,7 @@
 /**
  * This macro automatically register the current test to UnitTest.
  */
-#define LEST_TEST_(test_name, test_group, parent_class) \
+#define LEST_TEST_(test_group, test_name, parent_class) \
     class LEST_CLASS_NAME(test_name, test_group): public parent_class { \
     public: \
         LEST_CLASS_NAME(test_name, test_group)() : Test(#test_group, #test_name) {} \
