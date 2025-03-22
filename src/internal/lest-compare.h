@@ -28,28 +28,84 @@ enum {
 public:
 	Compare();
 	~Compare();
+
 	template <typename T>
 	int EQImpl(T expression1, T expression2)
 	{
-		return expression1 == expression2;
+		if(expression1 == expression2)
+		{
+			return 1;
+		}
+		else 
+		{
+			// todo raise different error.
+			return 0;
+		}
 	}
 
 	template <typename T>
 	int NEImpl(T expression1, T expression2)
 	{
-		return expression1 != expression2;
+		if(expression1 != expression2)
+		{
+			return 1;
+		}
+		else 
+		{
+			return 0;
+		}
 	}
 
 	template <typename T>
+	int GTImpl(T expression1, T expression2)
+	{
+		if(expression1 > expression2)
+		{
+			return 1;
+		}
+		else 
+		{
+			return 0;
+		}
+	}
+	
+	template <typename T>
 	int GEImpl(T expression1, T expression2)
 	{
-		return expression1 >= expression2;
+		if(expression1 >= expression2)
+		{
+			return 1;
+		}
+		else 
+		{
+			return 0;
+		}
 	}
 	
 	template <typename T>
 	int LEImpl(T expression1, T expression2)
 	{
-		return 0;
+		if(expression1 <= expression2)
+		{
+			return 1;
+		}
+		else 
+		{
+			return 0;
+		}
+	}
+
+	template <typename T>
+	int LTImpl(T expression1, T expression2)
+	{
+		if(expression1 < expression2)
+		{
+			return 1;
+		}
+		else 
+		{
+			return 0;
+		}
 	}
 
 	/**
@@ -60,17 +116,20 @@ public:
 		return std::strcmp(str1, str2);
 	}
 	
-private:
-	
 };
 
 class Comparor
 {
 public:
-
+	Comparor() = default;
 public:
 	virtual int CMP() = 0;
-
+	virtual int EQ() = 0;
+	virtual int NE() = 0;
+	virtual int GT() = 0;
+	virtual int GE() = 0;
+	virtual int LT() = 0;
+	virtual int LE() = 0;
 };
 
 }; // namespace lest
