@@ -123,7 +123,6 @@ class Comparor
 public:
 	Comparor() = default;
 public:
-	virtual int CMP() = 0;
 	virtual int EQ() = 0;
 	virtual int NE() = 0;
 	virtual int GT() = 0;
