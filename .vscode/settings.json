@@ -51,6 +51,10 @@
         "variant": "cpp",
         "vector": "cpp",
         "algorithm": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "__tree": "cpp",
+        "charconv": "cpp",
+        "forward_list": "cpp",
+        "set": "cpp"
     }
 }

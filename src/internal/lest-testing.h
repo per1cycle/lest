@@ -22,6 +22,10 @@ public:
     virtual ~Test() = default;
 
 public:
+    virtual void Setup();
+    virtual void TearDown();
+    
+public:
     virtual void TestBody() = 0;
     std::string TestName();
 public:

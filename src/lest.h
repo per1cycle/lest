@@ -15,9 +15,13 @@
 // and RUN will run all the registered unit test classes,
 // test is separated by test_group and test_name.
 #define TEST(test_group, test_name) LEST_TEST(test_group, test_name)
+#define TEST_F(test_fixture, test_name) LEST_TEST_F(test_fixture, test_name)
 
 #define LEST_TEST(test_group, test_name) \
     LEST_TEST_(test_group, test_name, lest::testing::Test)
+
+#define LEST_TEST_F(test_fixture, test_name) \
+    LEST_TEST_(test_fixture, test_name, lest::testing::Test)
 
 /**
  * assertation for different expressions,
