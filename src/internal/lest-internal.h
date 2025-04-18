@@ -32,7 +32,16 @@ namespace lest {
 namespace testing {
 class UnitTestImpl;
 
+/**
+ * If passed,
+ * duration,
+ * Test group name,
+ * Test name
+ */
 class TestResult {
+public:
+    TestResult();
+
 public:
     bool passed;
     std::string message;
@@ -55,7 +64,7 @@ public:
 
     virtual ~UnitTest() = default;
 	
-public:
+private:
 	UnitTestImpl *impl_;
 	/**
 	 * the test is seperated into different groups
@@ -74,9 +83,9 @@ public:
     int Run();
     int AddFailedTest(Test* fail_test);
     int HasFailedTest();
-     
 public:
     UnitTestImpl();
+private:
     std::vector<Test*> tests_;
     std::set<Test*> failed_;
 };

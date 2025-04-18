@@ -5,6 +5,8 @@
 
 namespace lest
 {
+
+class Comparor;
 /**
  * lest compare class
  * use template to compare result, type cannot be different, 
@@ -108,6 +110,12 @@ public:
 		}
 	}
 
+	template <typename T1, typename T2>
+	int CMPImpl(T1 expression1, T2 expression2, Comparor cmp)
+	{
+	}
+	
+
 	/**
 	 * for classic c str
 	 */
@@ -123,12 +131,12 @@ class Comparor
 public:
 	Comparor() = default;
 public:
-	virtual int EQ() = 0;
-	virtual int NE() = 0;
-	virtual int GT() = 0;
-	virtual int GE() = 0;
-	virtual int LT() = 0;
-	virtual int LE() = 0;
+	virtual int EQ();
+	virtual int NE();
+	virtual int GT();
+	virtual int GE();
+	virtual int LT();
+	virtual int LE();
 };
 
 }; // namespace lest
