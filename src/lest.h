@@ -21,7 +21,7 @@
     LEST_TEST_(test_group, test_name, lest::testing::Test)
 
 #define LEST_TEST_F(test_fixture, test_name) \
-    LEST_TEST_(test_fixture, test_name, lest::testing::Test)
+    LEST_TEST_F_(test_fixture, test_name, lest::testing::Test)
 
 /**
  * assertation for different expressions,

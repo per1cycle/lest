@@ -11,7 +11,12 @@ Generator::Generator()
 
 }
 
-int Generator::GenerateReport()
+Generator::Generator(const std::string& report_file)
+: report_file_(report_file)
+{
+}
+
+int Generator::GenerateReport(std::vector<lest::result::TestResult> &results_)
 {
     // generate report
     // generate passed test report
@@ -21,18 +26,31 @@ int Generator::GenerateReport()
     return 0;
 }
 
-int Generator::GeneratePassedReport()
+int Generator::GeneratePassedReport(const std::vector<lest::testing::TestResult>& results)
+{
+    // generate passed test report
+    for (const auto& result : results)
+    {
+        if (result.status == lest::testing::TestResult::PASSED)
+        {
+            // process passed test result
+        }
+    }
+    return 0;
+}
 {
     // generate passed test report
     return 0;
 
 }
 
-int Generator::GenerateFailedReport()
+int Generator::GenerateFailedReport(std::vector<lest::result::TestResult> &results_)
 {
-    // generate failed test report
+    
     return 0;
 }
+
+
 
 }// namespace generator
 } // namespace lest

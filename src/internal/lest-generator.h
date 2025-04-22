@@ -10,6 +10,7 @@
 
 
 #include <internal/lest-internal.h>
+#include <internal/lest-result.h>
 
 namespace lest
 {
@@ -20,14 +21,15 @@ class Generator
 {
 public:
     Generator();
+    Generator(const std::string& report_file);
 
 public:
-    int GenerateReport();
-    int GenerateFailedReport(testing::);
-    int GeneratePassedReport();
+    int GenerateReport(std::vector<lest::result::TestResult> &results_);
+    int GenerateFailedReport(std::vector<lest::result::TestResult> &results_);
+    int GeneratePassedReport(std::vector<lest::result::TestResult> &results_);
 
 private:
-    xmlTextWriterPtr writer_;    
+    std::string report_file_;
 
 };
 

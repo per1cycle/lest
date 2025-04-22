@@ -31,6 +31,7 @@ public:
 public:
     std::string test_group_;
     std::string test_name_;
+    [[maybe_unused]] int register_result_;
 };
 
 /**

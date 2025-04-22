@@ -8,6 +8,16 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include_directories(src)
 
+# add generate option 
+option(LEST_GENERATE_REPORT "Generate report" ON)
+if (LEST_GENERATE_REPORT)
+    find_package(LibXml2 REQUIRED)
+    include_directories(${LIBXML2_INCLUDE_DIRS})
+    link_directories(${LIBXML2_LIBRARY_DIRS})
+    add_definitions(-DLEST_GENERATE_REPORT)
+
+endif()
+
 add_subdirectory(src)
 add_subdirectory(sample)
 # add_subdirectory(tests)

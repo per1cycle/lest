@@ -10,13 +10,8 @@ Compare::~Compare()
 {
 }
 
-Comparor::Comparor()
-{
+// int Comparor::EQ()
+// {
 
-}
-
-int Comparor::EQ()
-{
-
-}
+// }
 }; // namespace lest

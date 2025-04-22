@@ -2,6 +2,8 @@
 #define LEST_COMPARE_H
 #include "internal/lest-define.h"
 #include "internal/lest-assert.h"
+#include "internal/lest-testing.h"
+#include "internal/lest-internal.h"
 
 namespace lest
 {
@@ -31,8 +33,8 @@ public:
 	Compare();
 	~Compare();
 
-	template <typename T>
-	int EQImpl(T expression1, T expression2)
+	template <typename T1, typename T2>
+	static int EQImpl(T1 expression1, T2 expression2, lest::testing::Test* test)
 	{
 		if(expression1 == expression2)
 		{
@@ -41,6 +43,7 @@ public:
 		else 
 		{
 			// todo raise different error.
+			lest::testing::UnitTest::GetAllInstance()->AddFailedTest(test);
 			return 0;
 		}
 	}
@@ -111,8 +114,9 @@ public:
 	}
 
 	template <typename T1, typename T2>
-	int CMPImpl(T1 expression1, T2 expression2, Comparor cmp)
+	int CMPImpl(T1 expression1, T2 expression2, const Comparor& cmp)
 	{
+		return 0;
 	}
 	
 
@@ -130,13 +134,13 @@ class Comparor
 {
 public:
 	Comparor() = default;
-public:
-	virtual int EQ();
-	virtual int NE();
-	virtual int GT();
-	virtual int GE();
-	virtual int LT();
-	virtual int LE();
+// public:
+// 	virtual int EQ();
+// 	virtual int NE();
+// 	virtual int GT();
+// 	virtual int GE();
+// 	virtual int LT();
+// 	virtual int LE();
 };
 
 }; // namespace lest

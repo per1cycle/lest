@@ -28,27 +28,12 @@
         lest::testing::UnitTest::GetAllInstance()->RegisterTest(new LEST_CLASS_NAME(test_name, test_group)()); \
     void LEST_CLASS_NAME(test_name, test_group)::TestBody()
 
+#define LEST_TEST_F_(test_fixture, test_name) \
+    
+
 namespace lest {
 namespace testing {
 class UnitTestImpl;
-
-/**
- * If passed,
- * duration,
- * Test group name,
- * Test name
- */
-class TestResult {
-public:
-    TestResult();
-
-public:
-    bool passed;
-    std::string message;
-    std::chrono::milliseconds duration;
-
-    TestResult(bool p = true, const std::string& msg = "", std::chrono::milliseconds dur = std::chrono::milliseconds(0));
-};
 
 class UnitTest {
 friend class UnitTestImpl;

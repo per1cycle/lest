@@ -21,12 +21,7 @@
 #define LEST_EXPECT_(CONDITION, expression1, expression2) \
     switch (CONDITION) { \
         case lest::Compare::EQ: \
-            if (expression1 == expression2) { \
-                LOG_INFO << "TEST PASSED"; \
-            } else { \
-                lest::testing::UnitTest::GetAllInstance()->AddFailedTest(this); \
-                LOG_ERROR << "Expect:" << expression1 << ", But got: " << expression2 << ", in " << typeid(this).name(); \
-            } \
+            lest::Compare::EQImpl(expression1, expression2, this); \
             break; \
         case lest::Compare::NE: \
             if (expression1 != expression2) { \

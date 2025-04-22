@@ -18,7 +18,7 @@ class FooTest: public lest::testing::Test
         }
 };
 
-TEST(FooTest, bar1)
+TEST_F(FooTest, bar1)
 {
 
 }

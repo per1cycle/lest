@@ -5,10 +5,10 @@ namespace lest
 {
 namespace result
 {
-class Result
+class TestResult
 {
 public:
-    Result() = delete;
+    TestResult() = delete;
 
 private:
     std::uint32_t m_id = 0;
