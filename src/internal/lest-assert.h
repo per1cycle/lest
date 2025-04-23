@@ -21,9 +21,10 @@
 #define LEST_EXPECT_(CONDITION, expression1, expression2) \
     switch (CONDITION) { \
         case lest::Compare::EQ: \
-            lest::Compare::EQImpl(expression1, expression2, this); \
+            lest::Compare::EQImpl(expression1, expression2, this, false); \
             break; \
         case lest::Compare::NE: \
+            lest::Compare::NEImpl(expression1, expression2, this, false); \
             if (expression1 != expression2) { \
                 LOG_INFO << "TEST PASSED"; \
             } else {\

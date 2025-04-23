@@ -34,87 +34,109 @@ public:
 	~Compare();
 
 	template <typename T1, typename T2>
-	static int EQImpl(T1 expression1, T2 expression2, lest::testing::Test* test)
+	static int EQImpl(T1 expression1, T2 expression2, lest::testing::Test* test, bool is_assert)
 	{
 		if(expression1 == expression2)
 		{
+			LOG_INFO << "TEST PASSED";
 			return 1;
 		}
 		else 
 		{
-			// todo raise different error.
 			lest::testing::UnitTest::GetAllInstance()->AddFailedTest(test);
-			return 0;
-		}
-	}
-
-	template <typename T>
-	int NEImpl(T expression1, T expression2)
-	{
-		if(expression1 != expression2)
-		{
-			return 1;
-		}
-		else 
-		{
-			return 0;
-		}
-	}
-
-	template <typename T>
-	int GTImpl(T expression1, T expression2)
-	{
-		if(expression1 > expression2)
-		{
-			return 1;
-		}
-		else 
-		{
-			return 0;
-		}
-	}
-	
-	template <typename T>
-	int GEImpl(T expression1, T expression2)
-	{
-		if(expression1 >= expression2)
-		{
-			return 1;
-		}
-		else 
-		{
-			return 0;
-		}
-	}
-	
-	template <typename T>
-	int LEImpl(T expression1, T expression2)
-	{
-		if(expression1 <= expression2)
-		{
-			return 1;
-		}
-		else 
-		{
-			return 0;
-		}
-	}
-
-	template <typename T>
-	int LTImpl(T expression1, T expression2)
-	{
-		if(expression1 < expression2)
-		{
-			return 1;
-		}
-		else 
-		{
+			if(is_assert)
+			{
+				// throw runtime error
+                std::ostringstream oss;
+                oss << "Assertion failed: " << expression1 << " == " << expression2 << " (" << expression1 << " vs " << expression2 << ")";
+				throw std::runtime_error(oss.str());
+			}
+			else 
+			{
+				LOG_ERROR << "Expect: " << expression1 << " == " << expression2 << ", But got an Not equal. "; 
+			}
 			return 0;
 		}
 	}
 
 	template <typename T1, typename T2>
-	int CMPImpl(T1 expression1, T2 expression2, const Comparor& cmp)
+	static int NEImpl(T1 expression1, T2 expression2, lest::testing::Test* test, bool is_assert)
+	{
+		if(expression1 != expression2)
+		{
+			LOG_INFO << "TEST PASSED";
+			return 1;
+		}
+		else 
+		{
+			lest::testing::UnitTest::GetAllInstance()->AddFailedTest(test);
+			return 0;
+		}
+	}
+
+	template <typename T1, typename T2>
+	static int GTImpl(T1 expression1, T2 expression2, lest::testing::Test* test, bool is_assert)
+	{
+		if(expression1 > expression2)
+		{
+			LOG_INFO << "TEST PASSED";
+			return 1;
+		}
+		else 
+		{
+			lest::testing::UnitTest::GetAllInstance()->AddFailedTest(test);
+			return 0;
+		}
+	}
+	
+	template <typename T1, typename T2>
+	static int GEImpl(T1 expression1, T2 expression2, lest::testing::Test* test, bool is_assert)
+	{
+		if(expression1 >= expression2)
+		{
+			LOG_INFO << "TEST PASSED";
+			return 1;
+		}
+		else 
+		{
+			lest::testing::UnitTest::GetAllInstance()->AddFailedTest(test);
+			return 0;
+		}
+	}
+	
+	template <typename T1, typename T2>
+	static int LEImpl(T1 expression1, T2 expression2, lest::testing::Test* test, bool is_assert)
+	{
+		if(expression1 <= expression2)
+		{
+			LOG_INFO << "TEST PASSED";
+			return 1;
+		}
+		else 
+		{
+			lest::testing::UnitTest::GetAllInstance()->AddFailedTest(test);
+			return 0;
+		}
+	}
+
+	template <typename T1, typename T2>
+	static int LTImpl(T1 expression1, T2 expression2, lest::testing::Test* test, bool is_assert)
+	{
+		if(expression1 < expression2)
+		{
+			LOG_INFO << "TEST PASSED";
+			return 1;
+		}
+		else 
+		{
+			lest::testing::UnitTest::GetAllInstance()->AddFailedTest(test);
+			
+			return 0;
+		}
+	}
+
+	template <typename T1, typename T2>
+	static int CMPImpl(T1 expression1, T2 expression2, const Comparor& cmp, lest::testing::Test* test)
 	{
 		return 0;
 	}

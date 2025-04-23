@@ -1,5 +1,6 @@
 #include "internal/lest-generator.h"
 #include <chrono>
+#include <memory>
 
 namespace lest
 {
@@ -16,35 +17,34 @@ Generator::Generator(const std::string& report_file)
 {
 }
 
-int Generator::GenerateReport(std::vector<lest::result::TestResult> &results_)
+int Generator::GenerateReport(const std::vector<std::unique_ptr<lest::result::TestResult> >& results)
 {
     // generate report
     // generate passed test report
-    GeneratePassedReport();
+    
+    // debug
+    std::vector<std::unique_ptr<lest::result::TestResult> > res;
+    // res.push_back(std::make_unique<lest::result::TestResult>());
+    GeneratePassedReport(res);
     // generate failed test report
-    GenerateFailedReport();
+    // GenerateFailedReport();
     return 0;
 }
 
-int Generator::GeneratePassedReport(const std::vector<lest::testing::TestResult>& results)
+int Generator::GeneratePassedReport(const std::vector<std::unique_ptr<lest::result::TestResult> >& results)
 {
     // generate passed test report
     for (const auto& result : results)
     {
-        if (result.status == lest::testing::TestResult::PASSED)
+        if (result)
         {
             // process passed test result
         }
     }
     return 0;
 }
-{
-    // generate passed test report
-    return 0;
 
-}
-
-int Generator::GenerateFailedReport(std::vector<lest::result::TestResult> &results_)
+int Generator::GenerateFailedReport(const std::vector<std::unique_ptr<lest::result::TestResult> >& results)
 {
     
     return 0;

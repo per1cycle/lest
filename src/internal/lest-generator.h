@@ -24,10 +24,10 @@ public:
     Generator(const std::string& report_file);
 
 public:
-    int GenerateReport(std::vector<lest::result::TestResult> &results_);
-    int GenerateFailedReport(std::vector<lest::result::TestResult> &results_);
-    int GeneratePassedReport(std::vector<lest::result::TestResult> &results_);
-
+    int GenerateReport(const std::vector<std::unique_ptr<lest::result::TestResult> >& results);
+    int GenerateFailedReport(const std::vector<std::unique_ptr<lest::result::TestResult> >& results);
+    int GeneratePassedReport(const std::vector<std::unique_ptr<lest::result::TestResult> >& results);
+    // int GenerateSingleReport(lest::result::TestResult &result);
 private:
     std::string report_file_;
 

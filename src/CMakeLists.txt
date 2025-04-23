@@ -5,4 +5,5 @@ add_library(liblest SHARED
 			lest-compare.cc
 			lest-log.cc
             lest-internal.cc
+            lest-generator.cc
             lest-testing.cc)

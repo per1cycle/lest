@@ -8,10 +8,10 @@ namespace result
 class TestResult
 {
 public:
-    TestResult() = delete;
+    TestResult();
 
-private:
-    std::uint32_t m_id = 0;
+public:
+    bool is_passed_ = true;
     std::string test_group_;
     std::string test_name_;
     std::string error_line_;
