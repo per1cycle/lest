@@ -25,52 +25,21 @@
             break; \
         case lest::Compare::NE: \
             lest::Compare::NEImpl(expression1, expression2, this, false); \
-            if (expression1 != expression2) { \
-                LOG_INFO << "TEST PASSED"; \
-            } else {\
-                lest::testing::UnitTest::GetAllInstance()->AddFailedTest(this); \
-                LOG_ERROR << "Expect: " << expression1 << " != " << expression2 << ", But got an EQ. "; \
-            } \
             break; \
         case lest::Compare::GT: \
-            if (expression1 > expression2) { \
-                LOG_INFO << "TEST PASSED"; \
-            } else { \
-                lest::testing::UnitTest::GetAllInstance()->AddFailedTest(this); \
-                LOG_ERROR << "Expect: " << expression1 << " > " << expression2; \
-            } \
+            lest::Compare::GTImpl(expression1, expression2, this, false); \
             break; \
         case lest::Compare::GE: \
-            if (expression1 >= expression2) { \
-                LOG_INFO << "TEST PASSED"; \
-            } else { \
-                lest::testing::UnitTest::GetAllInstance()->AddFailedTest(this); \
-                LOG_ERROR << "Expect: " << expression1 << " >= " << expression2; \
-            } \
+            lest::Compare::GEImpl(expression1, expression2, this, false); \
             break; \
         case lest::Compare::LT: \
-            if (expression1 < expression2) { \
-                LOG_INFO << "TEST PASSED"; \
-            } else { \
-                lest::testing::UnitTest::GetAllInstance()->AddFailedTest(this); \
-                LOG_ERROR << "Expect: " << expression1 << " < " << expression2; \
-            } \
+            lest::Compare::LTImpl(expression1, expression2, this, false); \
             break; \
         case lest::Compare::LE: \
-            if (expression1 <= expression2) { \
-                LOG_INFO << "TEST PASSED"; \
-            } else { \
-                lest::testing::UnitTest::GetAllInstance()->AddFailedTest(this); \
-                LOG_ERROR << "Expect: " << expression1 << " <= " << expression2; \
-            } \
+            lest::Compare::LEImpl(expression1, expression2, this, false); \
             break; \
         case lest::Compare::CMP: \
-            if (expression1 != expression2) { \
-                LOG_INFO << "TEST PASSED"; \
-            } else {\
-                lest::testing::UnitTest::GetAllInstance()->AddFailedTest(this); \
-                LOG_ERROR << "Custom comare class Expect: " << expression1 << "TODO: compare class." << expression2; \
-            } \
+            lest::Compare::LEImpl(expression1, expression2, this, false); \
             break; \
     }
 

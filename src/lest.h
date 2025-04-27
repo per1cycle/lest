@@ -11,6 +11,7 @@
 #include "internal/lest-define.h"
 #include "internal/lest-internal.h"
 #include "internal/lest-testing.h"
+#include "internal/lest-generator.h"
 // every time call the TEST macro will register a unit test class
 // and RUN will run all the registered unit test classes,
 // test is separated by test_group and test_name.

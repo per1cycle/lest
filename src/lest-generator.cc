@@ -1,6 +1,7 @@
 #include "internal/lest-generator.h"
 #include <chrono>
 #include <memory>
+#include <iostream>
 
 namespace lest
 {
@@ -17,30 +18,19 @@ Generator::Generator(const std::string& report_file)
 {
 }
 
-int Generator::GenerateReport(const std::vector<std::unique_ptr<lest::result::TestResult> >& results)
+int Generator::GenerateReport(const std::vector<std::unique_ptr<lest::result::TestResult> >& results, bool generate_passed)
 {
-    // generate report
-    // generate passed test report
-    
-    // debug
-    std::vector<std::unique_ptr<lest::result::TestResult> > res;
-    // res.push_back(std::make_unique<lest::result::TestResult>());
-    GeneratePassedReport(res);
-    // generate failed test report
-    // GenerateFailedReport();
+    GenerateFailedReport(results);
+
+    if(generate_passed)
+        GeneratePassedReport(results);
+
     return 0;
 }
 
 int Generator::GeneratePassedReport(const std::vector<std::unique_ptr<lest::result::TestResult> >& results)
 {
-    // generate passed test report
-    for (const auto& result : results)
-    {
-        if (result)
-        {
-            // process passed test result
-        }
-    }
+
     return 0;
 }
 

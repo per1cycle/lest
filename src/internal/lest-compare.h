@@ -70,6 +70,18 @@ public:
 		else 
 		{
 			lest::testing::UnitTest::GetAllInstance()->AddFailedTest(test);
+			if(is_assert)
+			{
+				// throw runtime error
+                std::ostringstream oss;
+                oss << "Assertion failed: " << expression1 << " != " << expression2 << " (" << expression1 << " vs " << expression2 << ")";
+				throw std::runtime_error(oss.str());
+			}
+			else 
+			{
+				LOG_ERROR << "Expect: " << expression1 << " != " << expression2 << ", But got an equal. "; 
+			}
+
 			return 0;
 		}
 	}
@@ -85,6 +97,19 @@ public:
 		else 
 		{
 			lest::testing::UnitTest::GetAllInstance()->AddFailedTest(test);
+
+			if(is_assert)
+			{
+				// throw runtime error
+                std::ostringstream oss;
+                oss << "Assertion failed: " << expression1 << " > " << expression2 << " (" << expression1 << " vs " << expression2 << ")";
+				throw std::runtime_error(oss.str());
+			}
+			else 
+			{
+				LOG_ERROR << "Expect: " << expression1 << " != " << expression2 << ", But got an equal. "; 
+			}
+			
 			return 0;
 		}
 	}
@@ -100,6 +125,19 @@ public:
 		else 
 		{
 			lest::testing::UnitTest::GetAllInstance()->AddFailedTest(test);
+
+			if(is_assert)
+			{
+				// throw runtime error
+                std::ostringstream oss;
+                oss << "Assertion failed: " << expression1 << " >= " << expression2 << " (" << expression1 << " vs " << expression2 << ")";
+				throw std::runtime_error(oss.str());
+			}
+			else 
+			{
+				LOG_ERROR << "Expect: " << expression1 << " != " << expression2 << ", But got an equal. "; 
+			}
+			
 			return 0;
 		}
 	}
@@ -115,6 +153,19 @@ public:
 		else 
 		{
 			lest::testing::UnitTest::GetAllInstance()->AddFailedTest(test);
+
+			if(is_assert)
+			{
+				// throw runtime error
+                std::ostringstream oss;
+                oss << "Assertion failed: " << expression1 << " <= " << expression2 << " (" << expression1 << " vs " << expression2 << ")";
+				throw std::runtime_error(oss.str());
+			}
+			else 
+			{
+				LOG_ERROR << "Expect: " << expression1 << " != " << expression2 << ", But got an equal. "; 
+			}
+			
 			return 0;
 		}
 	}
@@ -130,6 +181,18 @@ public:
 		else 
 		{
 			lest::testing::UnitTest::GetAllInstance()->AddFailedTest(test);
+
+			if(is_assert)
+			{
+				// throw runtime error
+                std::ostringstream oss;
+                oss << "Assertion failed: " << expression1 << " < " << expression2 << " (" << expression1 << " vs " << expression2 << ")";
+				throw std::runtime_error(oss.str());
+			}
+			else 
+			{
+				LOG_ERROR << "Expect: " << expression1 << " != " << expression2 << ", But got an equal. "; 
+			}
 			
 			return 0;
 		}

@@ -24,7 +24,7 @@ public:
     Generator(const std::string& report_file);
 
 public:
-    int GenerateReport(const std::vector<std::unique_ptr<lest::result::TestResult> >& results);
+    int GenerateReport(const std::vector<std::unique_ptr<lest::result::TestResult> >& results, bool generate_passed);
     int GenerateFailedReport(const std::vector<std::unique_ptr<lest::result::TestResult> >& results);
     int GeneratePassedReport(const std::vector<std::unique_ptr<lest::result::TestResult> >& results);
     // int GenerateSingleReport(lest::result::TestResult &result);
