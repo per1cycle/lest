@@ -14,6 +14,19 @@ public:
     }
 };
 
+class Bar
+{
+public:
+Bar()
+{
+
+}
+private:
+int bar1_;
+std::string bar2_;
+
+};
+
 int main(int argc, char const *argv[])
 {
     std::cout << LEST_VERSION << std::endl;    
