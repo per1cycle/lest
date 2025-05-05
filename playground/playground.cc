@@ -33,7 +33,7 @@ int main(int argc, char const *argv[])
     Foo f;
     f.foo(); 
 
-    lest::generator::Generator gen;
-    
+    lest::generator::Generator generator;
+        
     return 0;
 }

@@ -18,28 +18,28 @@ Generator::Generator(const std::string& report_file)
 {
 }
 
-int Generator::GenerateReport(const std::vector<std::unique_ptr<lest::result::TestResult> >& results, bool generate_passed)
-{
-    GenerateFailedReport(results);
-
-    if(generate_passed)
-        GeneratePassedReport(results);
-
-    return 0;
-}
-
-int Generator::GeneratePassedReport(const std::vector<std::unique_ptr<lest::result::TestResult> >& results)
+int Generator::GenerateReport(std::vector<lest::result::TestResult>& results, bool generate_passed)
 {
 
     return 0;
 }
 
-int Generator::GenerateFailedReport(const std::vector<std::unique_ptr<lest::result::TestResult> >& results)
+int Generator::GeneratePassedReport(std::vector<lest::result::TestResult>& results)
+{
+
+    return 0;
+}
+
+int Generator::GenerateFailedReport(std::vector<lest::result::TestResult>& results)
 {
     
     return 0;
 }
 
+int GenerateSingleReport(lest::result::TestResult &result)
+{
+    
+}
 
 
 }// namespace generator
