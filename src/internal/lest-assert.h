@@ -21,49 +21,73 @@
 #define LEST_EXPECT_(CONDITION, expression1, expression2) \
     switch (CONDITION) { \
         case lest::Compare::EQ: \
+        { \
             lest::Compare::EQImpl(expression1, expression2, this, false); \
             break; \
+        } \
         case lest::Compare::NE: \
+        { \
             lest::Compare::NEImpl(expression1, expression2, this, false); \
             break; \
+        } \
         case lest::Compare::GT: \
+        { \
             lest::Compare::GTImpl(expression1, expression2, this, false); \
             break; \
+        } \
         case lest::Compare::GE: \
+        { \
             lest::Compare::GEImpl(expression1, expression2, this, false); \
             break; \
+        } \
         case lest::Compare::LT: \
+        { \
             lest::Compare::LTImpl(expression1, expression2, this, false); \
             break; \
+        } \
         case lest::Compare::LE: \
+        { \
             lest::Compare::LEImpl(expression1, expression2, this, false); \
             break; \
+        } \
     }
 
 
 /**
  * use switch case for implement the comparasion
  */
-#define LEST_ASSERT_(CONDITION, expression1, expression2, ...) \
+#define LEST_ASSERT_(CONDITION, expression1, expression2) \
     switch (CONDITION) { \
         case lest::Compare::EQ: \
+        { \
             lest::Compare::EQImpl(expression1, expression2, this, true); \
             break; \
+        } \
         case lest::Compare::NE: \
+        { \
             lest::Compare::NEImpl(expression1, expression2, this, true); \
             break; \
+        } \
         case lest::Compare::GT: \
+        { \
             lest::Compare::GTImpl(expression1, expression2, this, true); \
             break; \
+        } \
         case lest::Compare::GE: \
+        { \
             lest::Compare::GEImpl(expression1, expression2, this, true); \
             break; \
+        } \
         case lest::Compare::LT: \
+        { \
             lest::Compare::LTImpl(expression1, expression2, this, true); \
             break; \
+        } \
         case lest::Compare::LE: \
+        { \
             lest::Compare::LEImpl(expression1, expression2, this, true); \
             break; \
+        } \
     }
 
 namespace lest {

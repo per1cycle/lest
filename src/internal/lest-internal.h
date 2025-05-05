@@ -29,7 +29,17 @@
     void LEST_CLASS_NAME(test_name, test_group)::TestBody()
 
 #define LEST_TEST_F_(test_fixture, test_name) \
-    
+    class LEST_CLASS_NAME(test_fixture, test_name): public test_fixture { \
+    public: \
+        LEST_CLASS_NAME(test_fixture, test_name): test_fixture() { Setup(); } \
+        ~LEST_CLASS_NAME(test_fixture, test_name) { TearDown(); } \
+    public: \
+        void TestBody() override; \
+        static int const register_result_; \
+    }; \
+    int const LEST_CLASS_NAME(test_fixture, test_name)::register_result_ = \
+        lest::testing::UnitTest::GetAllInstance()->RegisterTest(new LEST_CLASS_NAME(test_fixture, test_name)()); \
+    void LEST_CLASS_NAME(test_fixture, test_name)::TestBody()
 
 namespace lest {
 namespace testing {

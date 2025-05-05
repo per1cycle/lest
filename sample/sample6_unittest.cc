@@ -18,7 +18,8 @@ class FooTest: public lest::testing::Test
         }
 };
 
-TEST_F(FooTest, bar1)
+TEST_F(FooTest, fun)
 {
-
+    int a = 1, b = 2;
+    NE(a, b);
 }
