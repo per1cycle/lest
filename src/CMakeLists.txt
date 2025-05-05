@@ -6,6 +6,7 @@ add_library(liblest SHARED
 			lest-log.cc
             lest-internal.cc
             lest-generator.cc
+            lest-result.cc
             lest-testing.cc)
 
 if(LEST_GENERATE_REPORT)

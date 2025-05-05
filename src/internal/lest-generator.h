@@ -23,6 +23,7 @@ class Generator
 public:
     Generator();
     Generator(const std::string& report_file);
+    ~Generator();
 
 public:
     int GenerateReport(std::vector<lest::result::TestResult>& results, bool generate_passed);

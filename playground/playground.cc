@@ -30,10 +30,8 @@ std::string bar2_;
 int main(int argc, char const *argv[])
 {
     std::cout << LEST_VERSION << std::endl;    
-    Foo f;
-    f.foo(); 
-
     lest::generator::Generator generator;
-    lest::result::TestResult result()
+    lest::result::TestResult result;
+    generator.GenerateSingleReport(result);
     return 0;
 }
