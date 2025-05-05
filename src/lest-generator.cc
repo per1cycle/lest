@@ -3,6 +3,8 @@
 #include <memory>
 #include <iostream>
 
+#include <libxml/xmlwriter.h>
+
 namespace lest
 {
 namespace generator
@@ -16,6 +18,8 @@ Generator::Generator()
 Generator::Generator(const std::string& report_file)
 : report_file_(report_file)
 {
+    writer_ = xmlNewTextWriterFilename(report_file_.c_str(), 0);
+    xmlTextWriterStartDocument(writer_, NULL, "UTF-8", NULL);
 }
 
 int Generator::GenerateReport(std::vector<lest::result::TestResult>& results, bool generate_passed)
@@ -38,7 +42,7 @@ int Generator::GenerateFailedReport(std::vector<lest::result::TestResult>& resul
 
 int GenerateSingleReport(lest::result::TestResult &result)
 {
-    
+    xmlTextWriterWriteElement(writer_, "PowerScheme", "Testing")
 }
 
 

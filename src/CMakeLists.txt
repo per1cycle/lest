@@ -7,3 +7,7 @@ add_library(liblest SHARED
             lest-internal.cc
             lest-generator.cc
             lest-testing.cc)
+
+if(LEST_GENERATE_REPORT)
+    target_link_libraries(liblest xml2)
+endif(LEST_GENERATE_REPORT)

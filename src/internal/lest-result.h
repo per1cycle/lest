@@ -9,6 +9,7 @@ class TestResult
 {
 public:
     TestResult();
+    TestResult(bool is_pass, std::string test_group, std::string test_name, std::string error_line);
 
 public:
     bool is_passed_ = true;

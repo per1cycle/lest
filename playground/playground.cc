@@ -34,6 +34,6 @@ int main(int argc, char const *argv[])
     f.foo(); 
 
     lest::generator::Generator generator;
-        
+    lest::result::TestResult result()
     return 0;
 }

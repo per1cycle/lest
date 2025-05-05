@@ -5,7 +5,8 @@
 #ifndef LEST_GENERATOR_H
 #define LEST_GENERATOR_H
 
-#include <libxml/xmlwriter.h>
+#include <libxml2/libxml/xmlwriter.h>
+
 #include <chrono>   
 
 
@@ -30,7 +31,7 @@ public:
     int GenerateSingleReport(lest::result::TestResult &result);
 private:
     std::string report_file_;
-
+    xmlTextWriterPtr writer_;
 };
 
 } // generator
