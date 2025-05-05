@@ -40,7 +40,7 @@ int Generator::GenerateReport(std::vector<lest::result::TestResult>& results, bo
 
 int Generator::GeneratePassedReport(std::vector<lest::result::TestResult>& results)
 {
-
+    
     return 0;
 }
 
@@ -52,6 +52,7 @@ int Generator::GenerateFailedReport(std::vector<lest::result::TestResult>& resul
 
 int Generator::GenerateSingleReport(lest::result::TestResult &result)
 {
+    
     xmlTextWriterWriteElement(writer_, 
         reinterpret_cast<const unsigned char *>("PowerScheme"),
         reinterpret_cast<const unsigned char *>("Testing"));
