@@ -34,7 +34,9 @@ Generator::~Generator()
 
 int Generator::GenerateReport(std::vector<lest::result::TestResult>& results, bool generate_passed)
 {
-
+    GenerateFailedReport(results);
+    if(generate_passed)
+        GeneratePassedReport(results);
     return 0;
 }
 
@@ -46,13 +48,23 @@ int Generator::GeneratePassedReport(std::vector<lest::result::TestResult>& resul
 
 int Generator::GenerateFailedReport(std::vector<lest::result::TestResult>& results)
 {
+    xmlTextWriterStartElement(writer_, 
+        reinterpret_cast<const unsigned char*>("Failed reports"));
     
+    for(int i = 0; i < results.size(); i ++)
+    {
+        if(results[i].is_passed())
+            continue;
+        
+        
+    }
+    
+    xmlTextWriterEndElement(writer_);
     return 0;
 }
 
 int Generator::GenerateSingleReport(lest::result::TestResult &result)
 {
-    
     xmlTextWriterWriteElement(writer_, 
         reinterpret_cast<const unsigned char *>("PowerScheme"),
         reinterpret_cast<const unsigned char *>("Testing"));
