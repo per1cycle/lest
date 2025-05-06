@@ -15,11 +15,37 @@ class FooTest: public lest::testing::Test
         void TearDown() override
         {
             // Cleanup code here
+            v_.pop_back();
+            v_.pop_back();
+        }
+};
+
+class MoreFooTest: public FooTest
+{
+    public:
+        std::vector<int> v2_;
+
+    protected:
+        void Setup() override
+        {
+            FooTest::Setup();
+            v2_.push_back(1);
+        }
+
+        void TearDown() override
+        {
+            FooTest::TearDown();
         }
 };
 
 TEST_F(FooTest, fun)
 {
     int a = 1, b = 2;
+    EQ(v_.size(), 2);
+}
+
+TEST_F(MoreFooTest, lol)
+{
+    EQ(v2_.size(), 1);
     EQ(v_.size(), 2);
 }

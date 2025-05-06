@@ -21,7 +21,7 @@ public:
 
     virtual ~Test() = default;
 
-public:
+protected:
     virtual void Setup();
     virtual void TearDown();
     
