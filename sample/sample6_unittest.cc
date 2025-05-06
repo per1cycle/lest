@@ -5,7 +5,7 @@ class FooTest: public lest::testing::Test
 {
     public:
         std::vector<int> v_;
-    public:
+    protected:
         void Setup() override
         {
             // Setup code here
@@ -21,5 +21,5 @@ class FooTest: public lest::testing::Test
 TEST_F(FooTest, fun)
 {
     int a = 1, b = 2;
-    NE(a, b);
+    EQ(v_.size(), 2);
 }
