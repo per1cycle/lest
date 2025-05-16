@@ -31,8 +31,8 @@
 #define LEST_TEST_F_(test_fixture, test_name) \
     class LEST_CLASS_NAME(test_fixture, test_name): public test_fixture { \
     public: \
-        LEST_CLASS_NAME(test_fixture, test_name): test_fixture() { Setup(); } \
-        ~LEST_CLASS_NAME(test_fixture, test_name) { TearDown(); } \
+        LEST_CLASS_NAME(test_fixture, test_name)(): test_fixture() { Setup(); } \
+        ~LEST_CLASS_NAME(test_fixture, test_name)() { TearDown();} \
     public: \
         void TestBody() override; \
         static int const register_result_; \
