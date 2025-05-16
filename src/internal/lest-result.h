@@ -13,6 +13,7 @@ public:
     bool is_passed();
     std::string test_group();
     std::string test_name();
+    bool set_passed(bool passed);
 
 public:
     bool is_passed_ = true;

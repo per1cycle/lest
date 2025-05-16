@@ -1,5 +1,6 @@
 #include "internal/lest-internal.h"
 #include "internal/lest-define.h"
+#include "internal/lest-generator.h"
 namespace lest
 {
 namespace testing
@@ -103,6 +104,15 @@ int UnitTestImpl::AddFailedTest(Test* fail_test)
 int UnitTestImpl::HasFailedTest()
 {
     return failed_.size();
+}
+
+void UnitTestImpl::GenerateReport(bool generated_passed)
+{
+    lest::generator::Generator g;
+    std::vector<lest::result::TestResult> results;
+    // start generated report vector
+
+    g.GenerateReport(results, generated_passed);
 }
 
 } // namespace testing

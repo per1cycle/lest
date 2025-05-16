@@ -79,6 +79,7 @@ public:
     int Run();
     int AddFailedTest(Test* fail_test);
     int HasFailedTest();
+    void GenerateReport(bool generate_passed = false);
 public:
     UnitTestImpl();
 private:

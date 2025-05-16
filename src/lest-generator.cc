@@ -22,7 +22,7 @@ Generator::Generator(const std::string& report_file)
 {
     writer_ = xmlNewTextWriterFilename(report_file_.c_str(), 0);
     xmlTextWriterStartDocument(writer_, NULL, "UTF-8", NULL);
-    xmlTextWriterStartElement(writer_, reinterpret_cast<const unsigned char *>("Powersettings"));
+    xmlTextWriterStartElement(writer_, reinterpret_cast<const unsigned char *>("Lest_report"));
 }
 
 Generator::~Generator()
@@ -43,7 +43,7 @@ int Generator::GenerateReport(std::vector<lest::result::TestResult>& results, bo
 int Generator::GeneratePassedReport(std::vector<lest::result::TestResult>& results)
 {
     xmlTextWriterStartElement(writer_, 
-        reinterpret_cast<const unsigned char*>("Passed reports"));
+        reinterpret_cast<const unsigned char*>("Passed_reports"));
     
     for(int i = 0; i < results.size(); i ++)
     {
@@ -51,20 +51,21 @@ int Generator::GeneratePassedReport(std::vector<lest::result::TestResult>& resul
             continue;
         GenerateSingleReport(results[i]);
     }
+    xmlTextWriterEndElement(writer_);
+
     return 0;
 }
 
 int Generator::GenerateFailedReport(std::vector<lest::result::TestResult>& results)
 {
     xmlTextWriterStartElement(writer_, 
-        reinterpret_cast<const unsigned char*>("Failed reports"));
+        reinterpret_cast<const unsigned char*>("Failed_reports"));
     
     for(int i = 0; i < results.size(); i ++)
     {
         if(results[i].is_passed())
             continue;
         GenerateSingleReport(results[i]);
-        
     }
     
     xmlTextWriterEndElement(writer_);
@@ -77,18 +78,17 @@ int Generator::GenerateSingleReport(lest::result::TestResult &result)
     xmlTextWriterWriteElement(writer_, 
         reinterpret_cast<const unsigned char *>("Test_result"),
         reinterpret_cast<const unsigned char *>(result.is_passed()? "Passed": "Failed"));
-    xmlTextWriterEndElement(writer_);
+    // xmlTextWriterEndElement(writer_);
 
     xmlTextWriterWriteElement(writer_, 
         reinterpret_cast<const unsigned char *>("Test_group"),
         reinterpret_cast<const unsigned char *>(result.test_group().c_str()));
-    xmlTextWriterEndElement(writer_);
+    // xmlTextWriterEndElement(writer_);
 
     xmlTextWriterWriteElement(writer_, 
-        reinterpret_cast<const unsigned char *>("Test _name"),
+        reinterpret_cast<const unsigned char *>("Test_name"),
         reinterpret_cast<const unsigned char *>(result.test_name().c_str()));
-    xmlTextWriterEndElement(writer_);
-
+    // xmlTextWriterEndElement(writer_);
     return 0;
 }
 

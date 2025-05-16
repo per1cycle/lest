@@ -23,6 +23,12 @@ bool TestResult::is_passed()
     return is_passed_;
 }
 
+bool TestResult::set_passed(bool passed)
+{
+    is_passed_ = passed;
+    return is_passed_;
+}
+
 std::string TestResult::test_group()
 {
     return test_group_;
