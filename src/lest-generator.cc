@@ -42,7 +42,15 @@ int Generator::GenerateReport(std::vector<lest::result::TestResult>& results, bo
 
 int Generator::GeneratePassedReport(std::vector<lest::result::TestResult>& results)
 {
+    xmlTextWriterStartElement(writer_, 
+        reinterpret_cast<const unsigned char*>("Passed reports"));
     
+    for(int i = 0; i < results.size(); i ++)
+    {
+        if(results[i].is_passed())
+            continue;
+        
+    }
     return 0;
 }
 
@@ -53,7 +61,7 @@ int Generator::GenerateFailedReport(std::vector<lest::result::TestResult>& resul
     
     for(int i = 0; i < results.size(); i ++)
     {
-        if(results[i].is_passed())
+        if(! results[i].is_passed())
             continue;
         
         
@@ -65,10 +73,22 @@ int Generator::GenerateFailedReport(std::vector<lest::result::TestResult>& resul
 
 int Generator::GenerateSingleReport(lest::result::TestResult &result)
 {
+
     xmlTextWriterWriteElement(writer_, 
-        reinterpret_cast<const unsigned char *>("PowerScheme"),
-        reinterpret_cast<const unsigned char *>("Testing"));
+        reinterpret_cast<const unsigned char *>("Test result"),
+        reinterpret_cast<const unsigned char *>(result.is_passed()? "Passed": "Failed"));
     xmlTextWriterEndElement(writer_);
+
+    xmlTextWriterWriteElement(writer_, 
+        reinterpret_cast<const unsigned char *>("Test group"),
+        reinterpret_cast<const unsigned char *>(result.test_group().c_str()));
+    xmlTextWriterEndElement(writer_);
+
+    xmlTextWriterWriteElement(writer_, 
+        reinterpret_cast<const unsigned char *>("Test name"),
+        reinterpret_cast<const unsigned char *>(result.test_name().c_str()));
+    xmlTextWriterEndElement(writer_);
+
     return 0;
 }
 
