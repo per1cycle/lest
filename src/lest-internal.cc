@@ -1,6 +1,7 @@
 #include "internal/lest-internal.h"
 #include "internal/lest-define.h"
 #include "internal/lest-generator.h"
+#include "internal/lest-utils.h"
 namespace lest
 {
 namespace testing
@@ -48,6 +49,11 @@ int UnitTest::AddFailedTest(Test* failed_test)
 int UnitTest::HasFailedTest()
 {
     return impl()->HasFailedTest();
+}
+
+int UnitTest::GenerateReport(bool generate_passed)
+{
+    return impl()->GenerateReport(generate_passed);
 }
 
 UnitTestImpl::UnitTestImpl()
@@ -106,13 +112,36 @@ int UnitTestImpl::HasFailedTest()
     return failed_.size();
 }
 
-void UnitTestImpl::GenerateReport(bool generated_passed)
+int UnitTestImpl::GenerateReport(bool generated_passed)
 {
-    lest::generator::Generator g;
+    lest::generator::Generator g(lest::utils::current_time() + ".xml");
     std::vector<lest::result::TestResult> results;
     // start generated report vector
-
-    g.GenerateReport(results, generated_passed);
+    for(int i = 0; i < tests_.size(); i ++)
+    {
+        std::set<Test*>::iterator f;
+        if(!failed_.size())
+        {
+            continue;
+        }
+        for(f = failed_.begin(); f != failed_.end(); f ++)
+        {
+            if(tests_[i]->test_group_ == (*f)->test_group_ && tests_[i]->test_name_ == (*f)->test_name_)
+            {
+                lest::result::TestResult res(false, (*f)->test_group_, (*f)->test_name_);
+                results.push_back(res);
+                break;
+            }
+        }
+        if(f == failed_.end()) // didn't find failed test
+        {
+            lest::result::TestResult res(true, tests_[i]->test_group_, tests_[i]->test_name_);
+            results.push_back(res);
+        }
+    }
+    LOG << "Total report results: " << results.size();
+    return g.GenerateReport(results, generated_passed);
+    // return 1;
 }
 
 } // namespace testing

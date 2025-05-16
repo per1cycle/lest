@@ -124,8 +124,9 @@
 static int RUN()
 {
 #ifdef __cplusplus
-    return lest::testing::UnitTest::GetAllInstance()->RunAllTest();
+    lest::testing::UnitTest::GetAllInstance()->RunAllTest();
 #endif
+    return lest::testing::UnitTest::GetAllInstance()->GenerateReport(true);
 }
 
 #endif // LEST_H
