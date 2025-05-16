@@ -36,12 +36,24 @@ public:
 	template <typename T1, typename T2>
 	static int EQImpl(T1 expression1, T2 expression2, lest::testing::Test* test, bool is_assert)
 	{
-		if(expression1 == expression2)
+		if constexpr (std::is_floating_point<T1>::value && std::is_floating_point<T2>::value)
 		{
-			LOG_INFO << "TEST PASSED";
-			return 1;
+			if (std::fabs(expression1 - expression2) < 1e-9)
+			{
+				LOG_INFO << "TEST PASSED";
+				return 1;
+			}
 		}
-		else 
+		else
+		{
+			if(expression1 == expression2)
+			{
+				LOG_INFO << "TEST PASSED";
+				return 1;
+			}
+
+		}
+
 		{
 			lest::testing::UnitTest::GetAllInstance()->AddFailedTest(test);
 			if(is_assert)
