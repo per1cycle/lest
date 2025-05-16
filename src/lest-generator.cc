@@ -75,17 +75,17 @@ int Generator::GenerateSingleReport(lest::result::TestResult &result)
 {
 
     xmlTextWriterWriteElement(writer_, 
-        reinterpret_cast<const unsigned char *>("Test result"),
+        reinterpret_cast<const unsigned char *>("Test_result"),
         reinterpret_cast<const unsigned char *>(result.is_passed()? "Passed": "Failed"));
     xmlTextWriterEndElement(writer_);
 
     xmlTextWriterWriteElement(writer_, 
-        reinterpret_cast<const unsigned char *>("Test group"),
+        reinterpret_cast<const unsigned char *>("Test_group"),
         reinterpret_cast<const unsigned char *>(result.test_group().c_str()));
     xmlTextWriterEndElement(writer_);
 
     xmlTextWriterWriteElement(writer_, 
-        reinterpret_cast<const unsigned char *>("Test name"),
+        reinterpret_cast<const unsigned char *>("Test _name"),
         reinterpret_cast<const unsigned char *>(result.test_name().c_str()));
     xmlTextWriterEndElement(writer_);
 
