@@ -83,6 +83,7 @@ public:
 private:
     std::vector<Test*> tests_;
     std::set<Test*> failed_;
+
 };
 
 } // namespace testing

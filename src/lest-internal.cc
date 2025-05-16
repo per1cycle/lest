@@ -65,7 +65,7 @@ int UnitTestImpl::Run()
     int success_count = 0;
     int failed_count = 0;
     int skip_count = 0;
-    
+
     LOG_INFO << "[==========] Running " << tests_.size() << " tests.";
 
     /**
