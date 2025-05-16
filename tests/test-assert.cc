@@ -77,7 +77,6 @@ TEST(LestDogfood, Eq)
     AEQ(foo1_u64, foo2_u64);
 }
 
-
 TEST(LestDogfood, Ne)
 {
     ANE(1, 2);

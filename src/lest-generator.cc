@@ -47,9 +47,9 @@ int Generator::GeneratePassedReport(std::vector<lest::result::TestResult>& resul
     
     for(int i = 0; i < results.size(); i ++)
     {
-        if(results[i].is_passed())
+        if(!results[i].is_passed())
             continue;
-        
+        GenerateSingleReport(results[i]);
     }
     return 0;
 }
@@ -61,9 +61,9 @@ int Generator::GenerateFailedReport(std::vector<lest::result::TestResult>& resul
     
     for(int i = 0; i < results.size(); i ++)
     {
-        if(! results[i].is_passed())
+        if(results[i].is_passed())
             continue;
-        
+        GenerateSingleReport(results[i]);
         
     }
     
