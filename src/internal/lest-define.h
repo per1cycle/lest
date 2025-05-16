@@ -117,7 +117,12 @@ public:
 #define __FILENAME__ \
     (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
 
-#define LOG_INFO Log(__FILENAME__, __LINE__, Level::INFO).stream()
+#ifdef SILENCE
+    #define LOG_INFO
+#else 
+    #define LOG_INFO Log(__FILENAME__, __LINE__, Level::INFO).stream()
+#endif
+
 #define LOG_WARNING Log(__FILENAME__, __LINE__, Level::WARNING).stream()
 #define LOG_ERROR Log(__FILENAME__, __LINE__, Level::ERROR).stream()
 #define LOG LOG_INFO

@@ -41,7 +41,7 @@ public:
 
     void just_report_time();
 
-    void sleep_for_seconds(uint seconds);
+    void sleep_for_seconds(int seconds);
 
     ~Timer();
     

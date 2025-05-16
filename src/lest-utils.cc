@@ -102,7 +102,7 @@ void Timer::just_report_time()
             << "Time elapse(in milisecond):\t" << elapse_in_milisecond() << "ms." << std::endl;
 }
 
-void Timer::sleep_for_seconds(uint seconds)
+void Timer::sleep_for_seconds(int seconds)
 {
     std::this_thread::sleep_for(std::chrono::milliseconds(1000 * seconds));
 }

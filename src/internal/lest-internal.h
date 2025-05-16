@@ -18,16 +18,16 @@
  * This macro automatically register the current test to UnitTest.
  */
 #define LEST_TEST_(test_group, test_name, parent_class) \
-    class LEST_CLASS_NAME(test_name, test_group): public parent_class { \
+    class LEST_CLASS_NAME(test_group, test_name): public parent_class { \
     public: \
-        LEST_CLASS_NAME(test_name, test_group)() : Test(#test_group, #test_name) {} \
+        LEST_CLASS_NAME(test_group, test_name)() : Test(#test_group, #test_name) {} \
     public: \
         void TestBody() override; \
         static int const register_result_; \
     }; \
-    int const LEST_CLASS_NAME(test_name, test_group)::register_result_ = \
-        lest::testing::UnitTest::GetAllInstance()->RegisterTest(new LEST_CLASS_NAME(test_name, test_group)()); \
-    void LEST_CLASS_NAME(test_name, test_group)::TestBody()
+    int const LEST_CLASS_NAME(test_group, test_name)::register_result_ = \
+        lest::testing::UnitTest::GetAllInstance()->RegisterTest(new LEST_CLASS_NAME(test_group, test_name)()); \
+    void LEST_CLASS_NAME(test_group, test_name)::TestBody()
 
 #define LEST_TEST_F_(test_fixture, test_name) \
     class LEST_CLASS_NAME(test_fixture, test_name): public test_fixture { \
@@ -84,7 +84,7 @@ public:
 private:
     std::vector<Test*> tests_;
     std::set<Test*> failed_;
-    std::vector<lest::result::TestResult> results_;
+    std::set<lest::result::TestResult> results_;
 
 };
 
