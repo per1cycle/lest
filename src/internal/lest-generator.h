@@ -10,8 +10,7 @@
 #include <chrono>   
 
 
-#include <internal/lest-internal.h>
-#include <internal/lest-result.h>
+#include "internal/lest-internal.h"
 
 namespace lest
 {

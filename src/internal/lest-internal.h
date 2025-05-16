@@ -10,6 +10,7 @@
 
 #include "internal/lest-define.h"
 #include "internal/lest-testing.h"
+#include "internal/lest-result.h"
 
 #define LEST_CLASS_NAME(test_group, test_name) test_group##_##test_name##_Test
 
@@ -83,6 +84,7 @@ public:
 private:
     std::vector<Test*> tests_;
     std::set<Test*> failed_;
+    std::vector<lest::result::TestResult> results_;
 
 };
 
