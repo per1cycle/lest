@@ -5,6 +5,7 @@
 #include <cstring>
 #include <iomanip>
 #include <sstream>
+#include <chrono>
 #define CPU
 #if defined(CUDA)
 #define Event_t cudaEvent_t

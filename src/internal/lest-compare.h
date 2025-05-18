@@ -4,6 +4,7 @@
 #include "internal/lest-assert.h"
 #include "internal/lest-testing.h"
 #include "internal/lest-internal.h"
+#include <cmath>
 
 namespace lest
 {
@@ -40,7 +41,7 @@ public:
 		{
 			if (std::fabs(expression1 - expression2) < 1e-9)
 			{
-				LOG_INFO << "TEST PASSED";
+				// LOG_INFO << "TEST PASSED";
 				return 1;
 			}
 		}
@@ -48,7 +49,7 @@ public:
 		{
 			if(expression1 == expression2)
 			{
-				LOG_INFO << "TEST PASSED";
+				// LOG_INFO << "TEST PASSED";
 				return 1;
 			}
 
@@ -76,7 +77,7 @@ public:
 	{
 		if(expression1 != expression2)
 		{
-			LOG_INFO << "TEST PASSED";
+			// LOG_INFO << "TEST PASSED";
 			return 1;
 		}
 		else 
@@ -103,7 +104,7 @@ public:
 	{
 		if(expression1 > expression2)
 		{
-			LOG_INFO << "TEST PASSED";
+			// LOG_INFO << "TEST PASSED";
 			return 1;
 		}
 		else 
@@ -131,7 +132,7 @@ public:
 	{
 		if(expression1 >= expression2)
 		{
-			LOG_INFO << "TEST PASSED";
+			// LOG_INFO << "TEST PASSED";
 			return 1;
 		}
 		else 
@@ -159,7 +160,7 @@ public:
 	{
 		if(expression1 <= expression2)
 		{
-			LOG_INFO << "TEST PASSED";
+			// LOG_INFO << "TEST PASSED";
 			return 1;
 		}
 		else 
@@ -187,7 +188,7 @@ public:
 	{
 		if(expression1 < expression2)
 		{
-			LOG_INFO << "TEST PASSED";
+			// LOG_INFO << "TEST PASSED";
 			return 1;
 		}
 		else 
