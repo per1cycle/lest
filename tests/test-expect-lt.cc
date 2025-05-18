@@ -19,6 +19,5 @@ TEST(LTTest, NegativeCases)
 {
     // test where condition would fail
     int x = 2, y = 1;
-    if (!(x < y)) std::cerr << "Expected x < y to fail\n";
     // LT(x, y); // Uncomment for failure test
 }

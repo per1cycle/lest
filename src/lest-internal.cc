@@ -84,11 +84,11 @@ int UnitTestImpl::Run()
     {
         Test *current_test = *it;
         LOG_INFO << "Running Test: #" << it - tests_.begin() + 1 << ": " << current_test->TestName();
-        auto start = std::chrono::high_resolution_clock::now();
+        lest::utils::Timer local_timer;
+        local_timer.start();
         current_test->TestBody();
-        auto finish = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<double, std::milli> elapsed = finish - start;
-        LOG_INFO << "Test #" << it - tests_.begin() << " Finished. Cost: " << elapsed.count() << "s.";
+        local_timer.stop();
+        LOG_INFO << "Test #" << it - tests_.begin() << " Finished. Cost: " << local_timer.elapse_in_second() << "s.";
     }
 
     if (HasFailedTest())
