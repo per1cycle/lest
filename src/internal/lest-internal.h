@@ -35,19 +35,19 @@
         void TestBody() override final { \
             Setup(); \
             try { \
-                Body(); \
+                FixtureBody(); \
             } catch (...) { \
                 TearDown(); \
                 throw; \
             } \
             TearDown(); \
         } \
-        void Body(); \
+        void FixtureBody(); \
         static int const register_result_; \
     }; \
     int const LEST_CLASS_NAME(test_fixture, test_name)::register_result_ = \
         lest::testing::UnitTest::GetAllInstance()->RegisterTest(new LEST_CLASS_NAME(test_fixture, test_name)()); \
-    void LEST_CLASS_NAME(test_fixture, test_name)::Body()
+    void LEST_CLASS_NAME(test_fixture, test_name)::FixtureBody()
 
 
 namespace lest {
