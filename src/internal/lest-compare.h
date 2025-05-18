@@ -66,7 +66,7 @@ public:
 			}
 			else 
 			{
-				LOG_ERROR << "Expect: " << expression1 << " == " << expression2 << ", But got an Not equal. "; 
+				LOG_ERROR << "Expect: " << expression1 << " == " << expression2 << ", But got an !=. "; 
 			}
 			return 0;
 		}
@@ -92,7 +92,7 @@ public:
 			}
 			else 
 			{
-				LOG_ERROR << "Expect: " << expression1 << " != " << expression2 << ", But got an equal. "; 
+				LOG_ERROR << "Expect: " << expression1 << " != " << expression2 << ", But got an ==. "; 
 			}
 
 			return 0;
@@ -120,7 +120,7 @@ public:
 			}
 			else 
 			{
-				LOG_ERROR << "Expect: " << expression1 << " != " << expression2 << ", But got an equal. "; 
+				LOG_ERROR << "Expect: " << expression1 << " > " << expression2 << ", But got an <=. "; 
 			}
 			
 			return 0;
@@ -148,7 +148,7 @@ public:
 			}
 			else 
 			{
-				LOG_ERROR << "Expect: " << expression1 << " != " << expression2 << ", But got an equal. "; 
+				LOG_ERROR << "Expect: " << expression1 << " >= " << expression2 << ", But got an <. "; 
 			}
 			
 			return 0;
@@ -176,7 +176,7 @@ public:
 			}
 			else 
 			{
-				LOG_ERROR << "Expect: " << expression1 << " != " << expression2 << ", But got an equal. "; 
+				LOG_ERROR << "Expect: " << expression1 << " <= " << expression2 << ", But got an >. "; 
 			}
 			
 			return 0;
@@ -204,7 +204,7 @@ public:
 			}
 			else 
 			{
-				LOG_ERROR << "Expect: " << expression1 << " != " << expression2 << ", But got an equal. "; 
+				LOG_ERROR << "Expect: " << expression1 << " < " << expression2 << ", But got an >=. "; 
 			}
 			
 			return 0;
