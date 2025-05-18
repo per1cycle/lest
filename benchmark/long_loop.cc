@@ -73,3 +73,22 @@ TEST(Benchmark, 1000000000)
     t.reset();
 
 }
+
+
+TEST(Benchmark, bad1000000000)
+{
+    int N = 1000000000;
+    lest::utils::Timer t;
+
+    t.start();
+    for(int i = 0; i < N; i ++)
+    {
+        GT(2, 1);
+        if(!(i % 10000000))
+            EQ(1, 2);
+    }
+    t.stop();
+    t.just_report_time();
+    t.reset();
+
+}

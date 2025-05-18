@@ -30,23 +30,24 @@ class FastTest: public lest::testing::Test
         }
 };
 
-// class MoreFooTest: public FastTest
-// {
-//     public:
-//         std::vector<int> v2_;
+class MoreFooTest: public FastTest
+{
+    public:
+        std::vector<int> v2_;
+        using FastTest::FastTest;
 
-//     protected:
-//         void Setup() override
-//         {
-//             FastTest::Setup();
-//             v2_.push_back(1);
-//         }
+    protected:
+        void Setup() override
+        {
+            FastTest::Setup();
+            v2_.push_back(1);
+        }
 
-//         void TearDown() override
-//         {
-//             FastTest::TearDown();
-//         }
-// };
+        void TearDown() override
+        {
+            FastTest::TearDown();
+        }
+};
 
 TEST_F(FastTest, fun)
 {
@@ -57,8 +58,10 @@ TEST_F(FastTest, fun)
     EQ(v_.size(), 2);
 }
 
-// TEST_F(MoreFooTest, lol)
-// {
-//     EQ(v2_.size(), 1);
-//     EQ(v_.size(), 2);
-// }
+TEST_F(MoreFooTest, lol)
+{
+    EQ(v2_.size(), 1);
+    lest::utils::Timer t;
+    t.sleep_for_seconds(3);
+    EQ(v_.size(), 2);
+}
