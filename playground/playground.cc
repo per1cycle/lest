@@ -1,29 +1,12 @@
 #include <lest.h>
 #include <iostream>
 #define CLASS_NAME(x) #x
-class Foo
+class Base
 {
 public:
-    Foo() {}
-
-public:
-    int foo()
-    {
-        std::cout << typeid(this).name() << " " << __func__ << std::endl;
-        return 0;
-    }
-};
-
-class Bar
-{
-public:
-Bar()
-{
-
-}
+    Base(int x): x_(x){}
 private:
-int bar1_;
-std::string bar2_;
+    int x_;
 
 };
 

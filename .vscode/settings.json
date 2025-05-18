@@ -87,6 +87,8 @@
         "stop_token": "cpp",
         "thread": "cpp",
         "typeindex": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "format": "cpp",
+        "span": "cpp"
     }
 }

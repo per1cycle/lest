@@ -5,7 +5,9 @@ class FooTest: public lest::testing::Test
 {
     public:
         std::vector<int> v_;
-    protected:
+        using lest::testing::Test::Test;
+
+    public:
         void Setup() override
         {
             // Setup code here
@@ -24,17 +26,21 @@ class MoreFooTest: public FooTest
 {
     public:
         std::vector<int> v2_;
-
-    protected:
+        lest::utils::Timer t;
+        using FooTest::FooTest;
+    public:
         void Setup() override
         {
             FooTest::Setup();
             v2_.push_back(1);
+            t.start();
         }
 
         void TearDown() override
         {
             FooTest::TearDown();
+            t.stop();
+            std::cerr << "elapse: " << t.elapse_in_second() << std::flush;
         }
 };
 

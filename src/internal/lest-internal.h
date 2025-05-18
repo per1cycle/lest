@@ -28,19 +28,27 @@
     int const LEST_CLASS_NAME(test_group, test_name)::register_result_ = \
         lest::testing::UnitTest::GetAllInstance()->RegisterTest(new LEST_CLASS_NAME(test_group, test_name)()); \
     void LEST_CLASS_NAME(test_group, test_name)::TestBody()
-
 #define LEST_TEST_F_(test_fixture, test_name) \
     class LEST_CLASS_NAME(test_fixture, test_name): public test_fixture { \
     public: \
-        LEST_CLASS_NAME(test_fixture, test_name)(): test_fixture() { Setup(); } \
-        ~LEST_CLASS_NAME(test_fixture, test_name)() { TearDown();} \
-    public: \
-        void TestBody() override; \
+        LEST_CLASS_NAME(test_fixture, test_name)(): test_fixture(#test_fixture, #test_name) {} \
+        void TestBody() override final { \
+            Setup(); \
+            try { \
+                Body(); \
+            } catch (...) { \
+                TearDown(); \
+                throw; \
+            } \
+            TearDown(); \
+        } \
+        void Body(); \
         static int const register_result_; \
     }; \
     int const LEST_CLASS_NAME(test_fixture, test_name)::register_result_ = \
         lest::testing::UnitTest::GetAllInstance()->RegisterTest(new LEST_CLASS_NAME(test_fixture, test_name)()); \
-    void LEST_CLASS_NAME(test_fixture, test_name)::TestBody()
+    void LEST_CLASS_NAME(test_fixture, test_name)::Body()
+
 
 namespace lest {
 namespace testing {
