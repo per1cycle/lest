@@ -6,25 +6,27 @@ class FastTest: public lest::testing::Test
 {
     public:
         std::vector<int> v_;
-        time_t st;
-        FastTest(const std::string& test_group, const std::string& test_name)
-        : lest::testing::Test(test_group, test_name) {}
+        lest::utils::Timer t;
+        using lest::testing::Test::Test;
+
     protected:
         void Setup() override
         {
+            t.start();
             // Setup code here
             v_.push_back(1);
             v_.push_back(2);
-            st = time(nullptr);
-
         }
         void TearDown() override
         {
             // Cleanup code here
             v_.pop_back();
             v_.pop_back();
-            const time_t end_time = time(nullptr);
-            std::cout << "++++Test takes too long." << std::endl;
+            t.stop();
+            if(t.elapse_in_second() > 1.0f)
+            {
+                LOG_WARNING << "Test takes too long.";
+            }
         }
 };
 

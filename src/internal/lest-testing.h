@@ -27,7 +27,6 @@ public:
     
 public:
     virtual void TestBody() = 0;
-    virtual void RunTest();
     std::string TestName();
 public:
     std::string test_group_;
